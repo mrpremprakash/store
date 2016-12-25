@@ -145,9 +145,9 @@ $("[data-toggle=tooltip]")
         html: true
     });
 
-InitiateSideMenu();
-InitiateSettings();
-InitiateWidgets();
+// InitiateSideMenu();
+// InitiateSettings();
+// InitiateWidgets();
 
 function InitiateSideMenu() {
 
