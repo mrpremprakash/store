@@ -231,4 +231,19 @@ class ApiController extends Controller
         $newphrase = strtolower(str_replace(' ', '-', $newphrase));
         return $newphrase;
     }
+    
+    public function get_medicine_list(){
+        $keyword = Input::get('keyword');
+        $medicine = DB::table('medicine')
+                ->where('name', 'like', "%$keyword%")
+                ->get();
+        $medicine_count = $medicine->count();
+        $result = $medicine->toArray();
+                
+        return response()->json([
+                    'status' => 'sucess',
+                    'count' => $medicine_count,
+                    'result' => $result
+        ]);
+    }
 }
