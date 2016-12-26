@@ -3,6 +3,9 @@ import Topnav from './top_nav.js';
 import Leftnav from './left_nav.js';
 import Home from './home.js';
 import MedicineList from '../medicine/list.js';
+import TeamMember from '../team_member.js';
+import Profile from './profile.js';
+import Invoice from './invoice.js';
 
 export default class Container extends React.Component {
   constructor(props) {
@@ -21,6 +24,9 @@ export default class Container extends React.Component {
                 <Leftnav container={this}/>
                 {this.state.active_menu == 'Home' && <Home container={this}/>}
                 {this.state.active_menu == 'Medicine/List' && <MedicineList container={this}/>}
+                {this.state.active_menu == 'Warehouse/Team Members' && <TeamMember container={this}/>}
+                {this.state.active_menu == 'Profile' && <Profile container={this}/>}
+                {this.state.active_menu == 'Invoice' && <Invoice container={this}/>}
             </div>
         </div>
       </div>

@@ -10,14 +10,15 @@ export default class Leftnav extends React.Component {
           {label: 'Team Members'},
           {label: 'Letterhead'},
           {label: 'Chat'},
-          {label: 'Invoice'},
           {label: 'Todo List'},
           {label: 'Offer List'},
         ]},
         {label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [
           {label: 'List', ajax_url: 'users'},
           {label: 'Add'},
-        ]}
+        ]},
+        {label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: []},
+        {label: 'Profile', icon_class: 'fa fa-picture-o', submenu: []}
       ]
     };
   };
@@ -62,12 +63,6 @@ export default class Leftnav extends React.Component {
               )
             })
           }
-            <li>
-                <a href="profile.html">
-                    <i className="menu-icon fa fa-picture-o"></i>
-                    <span className="menu-text">Profile</span>
-                </a>
-            </li>
         </ul>
       </div>
     );
