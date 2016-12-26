@@ -25,3 +25,4 @@
     <script src="assets/js/charts/flot/jquery.flot.tooltip.js"></script>
     <script src="assets/js/charts/flot/jquery.flot.orderBars.js"></script>
     <script src="assets/js/datatable/datatables-init.js"></script>
+    <script src="assets/js/bundle.js"></script>

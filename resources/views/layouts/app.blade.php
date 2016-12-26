@@ -21,7 +21,7 @@
 
 
     <!--Basic Styles-->
-    
+
     <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/weather-icons.min.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
     <link href="assets/css/style-109.css" rel="stylesheet" />
     <link id="skin-link" href="" rel="stylesheet" type="text/css" />
 
-    
+
     <script src="assets/js/skins.min.js"></script>
 
     <!-- Scripts -->
@@ -50,34 +50,7 @@
     </script>
 </head>
 <body>
-    
-    <!-- Navbar -->
-    @include('layouts.head') 
-    <!-- /Navbar -->
-
-    <!-- Main Container -->
-    <div class="main-container container-fluid">
-        <!-- Page Container -->
-        <div class="page-container">
-
-            <!-- Page Sidebar -->
-            <div class="page-sidebar" id="sidebar">
-                @include('layouts.left_navigation')
-            </div>
-
-            <!-- Page Content -->
-
-            <div class="page-content">
-                @yield('page_content')
-            </div>
-            
-        </div>
-    </div>
-
-   
-
-    @include('layouts.scripts')
-
-
+    <div id="root"></div>
 </body>
+@include('layouts.scripts')
 </html>

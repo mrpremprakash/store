@@ -2,7 +2,7 @@
     <div class="loading-container">
         <div class="loader"></div>
     </div>
-    
+
 <div class="navbar">
         <div class="navbar-inner">
             <div class="navbar-container">
@@ -271,8 +271,8 @@
                                         <a href="profile.html" class="pull-left">Profile</a>
                                         <a href="#" class="pull-right">Setting</a>
                                     </li>
-                                    
-                                    <li class="dropdown-footer">                                        
+
+                                    <li class="dropdown-footer">
                                         <a href="{{ url('/logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">Logout</a>
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
