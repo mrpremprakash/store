@@ -17,7 +17,10 @@ export default class Leftnav extends React.Component {
           {label: 'List', ajax_url: 'users'},
           {label: 'Add'},
         ]},
-        {label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: []},
+        {label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [
+          {label: 'List'},
+          {label: 'Add'},
+        ]},
         {label: 'Profile', icon_class: 'fa fa-picture-o', submenu: []}
       ]
     };

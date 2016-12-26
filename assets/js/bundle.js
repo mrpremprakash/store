@@ -21515,9 +21515,9 @@
 
 	var _profile2 = _interopRequireDefault(_profile);
 
-	var _invoice = __webpack_require__(185);
+	var _add = __webpack_require__(185);
 
-	var _invoice2 = _interopRequireDefault(_invoice);
+	var _add2 = _interopRequireDefault(_add);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21560,7 +21560,7 @@
 	            this.state.active_menu == 'Medicine/List' && _react2.default.createElement(_list2.default, { container: this }),
 	            this.state.active_menu == 'Warehouse/Team Members' && _react2.default.createElement(_team_member2.default, { container: this }),
 	            this.state.active_menu == 'Profile' && _react2.default.createElement(_profile2.default, { container: this }),
-	            this.state.active_menu == 'Invoice' && _react2.default.createElement(_invoice2.default, { container: this })
+	            this.state.active_menu == 'Invoice/Add' && _react2.default.createElement(_add2.default, { container: this })
 	          )
 	        )
 	      );
@@ -22314,7 +22314,7 @@
 	    var _this = _possibleConstructorReturn(this, (Leftnav.__proto__ || Object.getPrototypeOf(Leftnav)).call(this, props));
 
 	    _this.state = {
-	      menus: [{ label: 'Home', icon_class: 'fa fa-home', submenu: [] }, { label: 'Warehouse', icon_class: 'fa fa-table', submenu: [{ label: 'Team Members' }, { label: 'Letterhead' }, { label: 'Chat' }, { label: 'Todo List' }, { label: 'Offer List' }] }, { label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [{ label: 'List', ajax_url: 'users' }, { label: 'Add' }] }, { label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [] }, { label: 'Profile', icon_class: 'fa fa-picture-o', submenu: [] }]
+	      menus: [{ label: 'Home', icon_class: 'fa fa-home', submenu: [] }, { label: 'Warehouse', icon_class: 'fa fa-table', submenu: [{ label: 'Team Members' }, { label: 'Letterhead' }, { label: 'Chat' }, { label: 'Todo List' }, { label: 'Offer List' }] }, { label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [{ label: 'List', ajax_url: 'users' }, { label: 'Add' }] }, { label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [{ label: 'List' }, { label: 'Add' }] }, { label: 'Profile', icon_class: 'fa fa-picture-o', submenu: [] }]
 	    };
 	    return _this;
 	  }
@@ -23730,7 +23730,7 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -23748,48 +23748,157 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Invoice = function (_React$Component) {
-	  _inherits(Invoice, _React$Component);
+	    _inherits(Invoice, _React$Component);
 
-	  function Invoice() {
-	    _classCallCheck(this, Invoice);
+	    function Invoice() {
+	        _classCallCheck(this, Invoice);
 
-	    return _possibleConstructorReturn(this, (Invoice.__proto__ || Object.getPrototypeOf(Invoice)).apply(this, arguments));
-	  }
-
-	  _createClass(Invoice, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "page-content" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "page-breadcrumbs" },
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "breadcrumb" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              _react2.default.createElement("i", { className: "fa fa-folder-open" }),
-	              _react2.default.createElement(
-	                "a",
-	                { href: "javascript:void(0);" },
-	                "Invoice"
-	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "page-body" },
-	          _react2.default.createElement("div", { className: "row" })
-	        )
-	      );
+	        return _possibleConstructorReturn(this, (Invoice.__proto__ || Object.getPrototypeOf(Invoice)).apply(this, arguments));
 	    }
-	  }]);
 
-	  return Invoice;
+	    _createClass(Invoice, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "page-content" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "page-breadcrumbs" },
+	                    _react2.default.createElement(
+	                        "ul",
+	                        { className: "breadcrumb" },
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement("i", { className: "fa fa-folder-open" }),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "javascript:void(0);" },
+	                                "Invoice"
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "page-body" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-lg-12 col-sm-12 col-xs-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "widget" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "widget-header bordered-bottom bordered-palegreen" },
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "widget-caption" },
+	                                        "Create New Invoice"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "widget-body" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "form",
+	                                            { className: "form-horizontal form-bordered", role: "form", onSubmit: this.validate.bind(this) },
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "form-group" },
+	                                                _react2.default.createElement(
+	                                                    "label",
+	                                                    { "for": "inputEmail3", className: "col-sm-2 control-label no-padding-right" },
+	                                                    "Name:"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-10" },
+	                                                    _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Medicine Name", name: "medicine_name" })
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "form-group" },
+	                                                _react2.default.createElement(
+	                                                    "label",
+	                                                    { "for": "inputPassword3", className: "col-sm-2 control-label no-padding-right" },
+	                                                    "Quantity:"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-10" },
+	                                                    _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Quantity" })
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "form-group" },
+	                                                _react2.default.createElement(
+	                                                    "label",
+	                                                    { "for": "inputPassword3", className: "col-sm-2 control-label no-padding-right" },
+	                                                    "Price:"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-10" },
+	                                                    _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Price" })
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "form-group" },
+	                                                _react2.default.createElement(
+	                                                    "label",
+	                                                    { "for": "inputPassword3", className: "col-sm-2 control-label no-padding-right" },
+	                                                    "Discount:"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-10" },
+	                                                    _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Discount" })
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "form-group" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-offset-2 col-sm-10" },
+	                                                    _react2.default.createElement(
+	                                                        "button",
+	                                                        { type: "submit", className: "btn btn-palegreen" },
+	                                                        "Add To Cart"
+	                                                    )
+	                                                )
+	                                            )
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }, {
+	        key: "validate",
+	        value: function validate(event) {
+	            event.stopPropagation();
+	            event.prevendDefault();
+	            console.log(event);
+	            return false;
+	        }
+	    }]);
+
+	    return Invoice;
 	}(_react2.default.Component);
 
 	exports.default = Invoice;
