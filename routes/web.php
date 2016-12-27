@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function()
 {
     Route::resource('shop_medicine', 'Shop_medicineController');
 });
-
+//Route::resource('shop_medicine', 'Shop_medicineController');
 
 Route::get('/invoice', function () {
     return view('pages.invoice');
