@@ -6,19 +6,21 @@ import MedicineList from '../medicine/list.js';
 import TeamMember from '../team_member.js';
 import Profile from './profile.js';
 import InvoiceAdd from '../invoice/add.js';
+import InvoicePrint from '../invoice/print.js';
 
 export default class Container extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       active_menu: 'Home',
-      items: []
+      items: [],
+      invoice_notification_items: []
     };
   };
   render() {
     return (
       <div>
-        <Topnav />
+        <Topnav container={this}/>
         <div className="main-container container-fluid">
             <div className="page-container">
                 <Leftnav container={this}/>
@@ -27,6 +29,7 @@ export default class Container extends React.Component {
                 {this.state.active_menu == 'Warehouse/Team Members' && <TeamMember container={this}/>}
                 {this.state.active_menu == 'Profile' && <Profile container={this}/>}
                 {this.state.active_menu == 'Invoice/Add' && <InvoiceAdd container={this}/>}
+                {this.state.active_menu == 'Invoice/Print' && <InvoicePrint container={this}/>}
             </div>
         </div>
       </div>

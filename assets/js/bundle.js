@@ -21495,29 +21495,33 @@
 
 	var _top_nav2 = _interopRequireDefault(_top_nav);
 
-	var _left_nav = __webpack_require__(180);
+	var _left_nav = __webpack_require__(182);
 
 	var _left_nav2 = _interopRequireDefault(_left_nav);
 
-	var _home = __webpack_require__(181);
+	var _home = __webpack_require__(183);
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _list = __webpack_require__(182);
+	var _list = __webpack_require__(184);
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _team_member = __webpack_require__(183);
+	var _team_member = __webpack_require__(185);
 
 	var _team_member2 = _interopRequireDefault(_team_member);
 
-	var _profile = __webpack_require__(184);
+	var _profile = __webpack_require__(186);
 
 	var _profile2 = _interopRequireDefault(_profile);
 
-	var _add = __webpack_require__(185);
+	var _add = __webpack_require__(187);
 
 	var _add2 = _interopRequireDefault(_add);
+
+	var _print = __webpack_require__(188);
+
+	var _print2 = _interopRequireDefault(_print);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21537,7 +21541,8 @@
 
 	    _this.state = {
 	      active_menu: 'Home',
-	      items: []
+	      items: [],
+	      invoice_notification_items: []
 	    };
 	    return _this;
 	  }
@@ -21548,7 +21553,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_top_nav2.default, null),
+	        _react2.default.createElement(_top_nav2.default, { container: this }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'main-container container-fluid' },
@@ -21560,7 +21565,8 @@
 	            this.state.active_menu == 'Medicine/List' && _react2.default.createElement(_list2.default, { container: this }),
 	            this.state.active_menu == 'Warehouse/Team Members' && _react2.default.createElement(_team_member2.default, { container: this }),
 	            this.state.active_menu == 'Profile' && _react2.default.createElement(_profile2.default, { container: this }),
-	            this.state.active_menu == 'Invoice/Add' && _react2.default.createElement(_add2.default, { container: this })
+	            this.state.active_menu == 'Invoice/Add' && _react2.default.createElement(_add2.default, { container: this }),
+	            this.state.active_menu == 'Invoice/Print' && _react2.default.createElement(_print2.default, { container: this })
 	          )
 	        )
 	      );
@@ -21602,6 +21608,560 @@
 /* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _account_area = __webpack_require__(180);
+
+	var _account_area2 = _interopRequireDefault(_account_area);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Topnav = function (_React$Component) {
+	    _inherits(Topnav, _React$Component);
+
+	    function Topnav(props) {
+	        _classCallCheck(this, Topnav);
+
+	        return _possibleConstructorReturn(this, (Topnav.__proto__ || Object.getPrototypeOf(Topnav)).call(this, props));
+	    }
+
+	    _createClass(Topnav, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'navbar' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'navbar-inner' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'navbar-container' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'navbar-header pull-left' },
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#', className: 'navbar-brand' },
+	                                _react2.default.createElement(
+	                                    'small',
+	                                    null,
+	                                    _react2.default.createElement('img', { src: 'assets/img/logo.png', alt: '' })
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'sidebar-collapse', id: 'sidebar-collapse' },
+	                            _react2.default.createElement('i', { className: 'collapse-icon fa fa-bars' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'navbar-header pull-right' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'navbar-account' },
+	                                _react2.default.createElement(_account_area2.default, { container: this.props.container }),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'setting' },
+	                                    _react2.default.createElement(
+	                                        'a',
+	                                        { id: 'btn-setting', title: 'Setting', href: '#' },
+	                                        _react2.default.createElement('i', { className: 'icon glyphicon glyphicon-cog' })
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'setting-container' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox_fixednavbar' }),
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'text' },
+	                                            'Fixed Navbar'
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox_fixedsidebar' }),
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'text' },
+	                                            'Fixed SideBar'
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox_fixedbreadcrumbs' }),
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'text' },
+	                                            'Fixed BreadCrumbs'
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', id: 'checkbox_fixedheader' }),
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'text' },
+	                                            'Fixed Header'
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Topnav;
+	}(_react2.default.Component);
+
+	exports.default = Topnav;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _invoice_notification = __webpack_require__(181);
+
+	var _invoice_notification2 = _interopRequireDefault(_invoice_notification);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var AccountArea = function (_React$Component) {
+	    _inherits(AccountArea, _React$Component);
+
+	    function AccountArea(props) {
+	        _classCallCheck(this, AccountArea);
+
+	        return _possibleConstructorReturn(this, (AccountArea.__proto__ || Object.getPrototypeOf(AccountArea)).call(this, props));
+	    }
+
+	    _createClass(AccountArea, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'ul',
+	                { className: 'account-area' },
+	                _react2.default.createElement(_invoice_notification2.default, { container: this.props.container }),
+	                _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                        'a',
+	                        { className: 'dropdown-toggle', 'data-toggle': 'dropdown', title: 'Mails', href: '#' },
+	                        _react2.default.createElement('i', { className: 'icon fa fa-envelope' }),
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'badge' },
+	                            '3'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'ul',
+	                        { className: 'pull-right dropdown-menu dropdown-arrow dropdown-messages' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#' },
+	                                _react2.default.createElement('img', { src: 'assets/img/avatars/divyia.jpg', className: 'message-avatar', alt: 'Divyia Austin' }),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'message' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-sender' },
+	                                        'Divyia Austin'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-time' },
+	                                        '2 minutes ago'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-subject' },
+	                                        'Heres the recipe for apple pie'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-body' },
+	                                        'to identify the sending application when the senders image is shown for the main icon'
+	                                    )
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#' },
+	                                _react2.default.createElement('img', { src: 'assets/img/avatars/bing.png', className: 'message-avatar', alt: 'Microsoft Bing' }),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'message' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-sender' },
+	                                        'Bing.com'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-time' },
+	                                        'Yesterday'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-subject' },
+	                                        'Bing Newsletter: The January Issue\u200F'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-body' },
+	                                        'Discover new music just in time for the Grammy\xAE Awards.'
+	                                    )
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#' },
+	                                _react2.default.createElement('img', { src: 'assets/img/avatars/adam-jansen.jpg', className: 'message-avatar', alt: 'Divyia Austin' }),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'message' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-sender' },
+	                                        'Nicolas'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-time' },
+	                                        'Friday, September 22'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-subject' },
+	                                        'New 4K Cameras'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'message-body' },
+	                                        'The 4K revolution has come over the horizon and is reaching the general populous'
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                        'a',
+	                        { className: 'dropdown-toggle', 'data-toggle': 'dropdown', title: 'Tasks', href: '#' },
+	                        _react2.default.createElement('i', { className: 'icon fa fa-tasks' }),
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'badge' },
+	                            '4'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'ul',
+	                        { className: 'pull-right dropdown-menu dropdown-tasks dropdown-arrow ' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: 'dropdown-header bordered-darkorange' },
+	                            _react2.default.createElement('i', { className: 'fa fa-tasks' }),
+	                            '4 Tasks In Progress'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'clearfix' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'pull-left' },
+	                                        'Account Creation'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'pull-right' },
+	                                        '65%'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'progress progress-xs' },
+	                                    _react2.default.createElement('div', { style: { width: "65%" }, className: 'progress-bar' })
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'clearfix' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'pull-left' },
+	                                        'Profile Data'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'pull-right' },
+	                                        '35%'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'progress progress-xs' },
+	                                    _react2.default.createElement('div', { style: { width: "35%" }, className: 'progress-bar progress-bar-success' })
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'clearfix' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'pull-left' },
+	                                        'Updating Resume'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'pull-right' },
+	                                        '75%'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'progress progress-xs' },
+	                                    _react2.default.createElement('div', { style: { width: "75%" }, className: 'progress-bar progress-bar-darkorange' })
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'clearfix' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'pull-left' },
+	                                        'Adding Contacts'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'pull-right' },
+	                                        '10%'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'progress progress-xs' },
+	                                    _react2.default.createElement('div', { style: { width: "10%" }, className: 'progress-bar progress-bar-warning' })
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: 'dropdown-footer' },
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#' },
+	                                'See All Tasks'
+	                            ),
+	                            _react2.default.createElement(
+	                                'button',
+	                                { className: 'btn btn-xs btn-default shiny darkorange icon-only pull-right' },
+	                                _react2.default.createElement('i', { className: 'fa fa-check' })
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                        'a',
+	                        { className: 'wave in', id: 'chat-link', title: 'Chat', href: '#' },
+	                        _react2.default.createElement('i', { className: 'icon glyphicon glyphicon-comment' })
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                        'a',
+	                        { className: 'login-area dropdown-toggle', 'data-toggle': 'dropdown' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'avatar', title: 'View your public profile' },
+	                            _react2.default.createElement('img', { src: 'assets/img/avatars/adam-jansen.jpg' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'section',
+	                            null,
+	                            _react2.default.createElement(
+	                                'h2',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'span',
+	                                    { className: 'profile' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        'David Stevenson'
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'ul',
+	                        { className: 'pull-right dropdown-menu dropdown-arrow dropdown-login-area' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: 'username' },
+	                            _react2.default.createElement(
+	                                'a',
+	                                null,
+	                                'David Stevenson'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: 'email' },
+	                            _react2.default.createElement(
+	                                'a',
+	                                null,
+	                                'David.Stevenson@live.com'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'avatar-area' },
+	                                _react2.default.createElement('img', { src: 'assets/img/avatars/adam-jansen.jpg', className: 'avatar' }),
+	                                _react2.default.createElement(
+	                                    'span',
+	                                    { className: 'caption' },
+	                                    'Change Photo'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: 'edit' },
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: 'profile.html', className: 'pull-left' },
+	                                'Profile'
+	                            ),
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#', className: 'pull-right' },
+	                                'Setting'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: 'dropdown-footer' },
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '{{ url(\'/logout\') }}', 'data-params': '' },
+	                                'Logout'
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return AccountArea;
+	}(_react2.default.Component);
+
+	exports.default = AccountArea;
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -21622,653 +22182,85 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Topnav = function (_React$Component) {
-	    _inherits(Topnav, _React$Component);
+	var InvoiceNotification = function (_React$Component) {
+	    _inherits(InvoiceNotification, _React$Component);
 
-	    function Topnav(props) {
-	        _classCallCheck(this, Topnav);
+	    function InvoiceNotification(props) {
+	        _classCallCheck(this, InvoiceNotification);
 
-	        var _this = _possibleConstructorReturn(this, (Topnav.__proto__ || Object.getPrototypeOf(Topnav)).call(this, props));
-
-	        _this.state = {
-	            top_nav_menus: []
-	        };
-	        return _this;
+	        return _possibleConstructorReturn(this, (InvoiceNotification.__proto__ || Object.getPrototypeOf(InvoiceNotification)).call(this, props));
 	    }
 
-	    _createClass(Topnav, [{
+	    _createClass(InvoiceNotification, [{
 	        key: "render",
 	        value: function render() {
+	            var self = this;
+	            var container = this.props.container.state;
+	            if (container.invoice_notification_items.length == 0) {
+	                return _react2.default.createElement("span", null);
+	            }
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "navbar" },
+	                "li",
+	                null,
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "navbar-inner" },
+	                    "a",
+	                    { className: " dropdown-toggle", "data-toggle": "dropdown", title: "Notifications", href: "#" },
+	                    _react2.default.createElement("i", { className: "icon fa fa-warning" }),
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "navbar-container" },
-	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "navbar-header pull-left" },
+	                        "span",
+	                        { className: "badge" },
+	                        container.invoice_notification_items.length
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "ul",
+	                    { className: "pull-right dropdown-menu dropdown-arrow dropdown-notifications" },
+	                    container.invoice_notification_items.map(function (item, index) {
+	                        return _react2.default.createElement(
+	                            "li",
+	                            { key: index },
 	                            _react2.default.createElement(
 	                                "a",
-	                                { href: "#", className: "navbar-brand" },
-	                                _react2.default.createElement(
-	                                    "small",
-	                                    null,
-	                                    _react2.default.createElement("img", { src: "assets/img/logo.png", alt: "" })
-	                                )
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "sidebar-collapse", id: "sidebar-collapse" },
-	                            _react2.default.createElement("i", { className: "collapse-icon fa fa-bars" })
-	                        ),
-	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "navbar-header pull-right" },
-	                            _react2.default.createElement(
-	                                "div",
-	                                { className: "navbar-account" },
-	                                _react2.default.createElement(
-	                                    "ul",
-	                                    { className: "account-area" },
-	                                    _react2.default.createElement(
-	                                        "li",
-	                                        null,
-	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: " dropdown-toggle", "data-toggle": "dropdown", title: "Notifications", href: "#" },
-	                                            _react2.default.createElement("i", { className: "icon fa fa-warning" })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "ul",
-	                                            { className: "pull-right dropdown-menu dropdown-arrow dropdown-notifications" },
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "clearfix" },
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-icon" },
-	                                                            _react2.default.createElement("i", { className: "fa fa-phone bg-themeprimary white" })
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-body" },
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "title" },
-	                                                                "Skype meeting with Patty"
-	                                                            ),
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "description" },
-	                                                                "01:00 pm"
-	                                                            )
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-extra" },
-	                                                            _react2.default.createElement("i", { className: "fa fa-clock-o themeprimary" }),
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "description" },
-	                                                                "office"
-	                                                            )
-	                                                        )
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "clearfix" },
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-icon" },
-	                                                            _react2.default.createElement("i", { className: "fa fa-check bg-darkorange white" })
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-body" },
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "title" },
-	                                                                "Uncharted break"
-	                                                            ),
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "description" },
-	                                                                "03:30 pm - 05:15 pm"
-	                                                            )
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-extra" },
-	                                                            _react2.default.createElement("i", { className: "fa fa-clock-o darkorange" })
-	                                                        )
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "clearfix" },
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-icon" },
-	                                                            _react2.default.createElement("i", { className: "fa fa-gift bg-warning white" })
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-body" },
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "title" },
-	                                                                "Kate birthday party"
-	                                                            ),
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "description" },
-	                                                                "08:30 pm"
-	                                                            )
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-extra" },
-	                                                            _react2.default.createElement("i", { className: "fa fa-calendar warning" }),
-	                                                            _react2.default.createElement("i", { className: "fa fa-clock-o warning" }),
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "description" },
-	                                                                "at home"
-	                                                            )
-	                                                        )
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "clearfix" },
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-icon" },
-	                                                            _react2.default.createElement("i", { className: "fa fa-glass bg-success white" })
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "div",
-	                                                            { className: "notification-body" },
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "title" },
-	                                                                "Dinner with friends"
-	                                                            ),
-	                                                            _react2.default.createElement(
-	                                                                "span",
-	                                                                { className: "description" },
-	                                                                "10:30 pm"
-	                                                            )
-	                                                        )
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                { className: "dropdown-footer " },
-	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    null,
-	                                                    "Today, March 28"
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "pull-right" },
-	                                                    "10\xB0c",
-	                                                    _react2.default.createElement("i", { className: "wi wi-cloudy" })
-	                                                )
-	                                            )
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        "li",
-	                                        null,
-	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "dropdown-toggle", "data-toggle": "dropdown", title: "Mails", href: "#" },
-	                                            _react2.default.createElement("i", { className: "icon fa fa-envelope" }),
-	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "badge" },
-	                                                "3"
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "ul",
-	                                            { className: "pull-right dropdown-menu dropdown-arrow dropdown-messages" },
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement("img", { src: "assets/img/avatars/divyia.jpg", className: "message-avatar", alt: "Divyia Austin" }),
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "message" },
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-sender" },
-	                                                            "Divyia Austin"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-time" },
-	                                                            "2 minutes ago"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-subject" },
-	                                                            "Heres the recipe for apple pie"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-body" },
-	                                                            "to identify the sending application when the senders image is shown for the main icon"
-	                                                        )
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement("img", { src: "assets/img/avatars/bing.png", className: "message-avatar", alt: "Microsoft Bing" }),
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "message" },
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-sender" },
-	                                                            "Bing.com"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-time" },
-	                                                            "Yesterday"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-subject" },
-	                                                            "Bing Newsletter: The January Issue\u200F"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-body" },
-	                                                            "Discover new music just in time for the Grammy\xAE Awards."
-	                                                        )
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement("img", { src: "assets/img/avatars/adam-jansen.jpg", className: "message-avatar", alt: "Divyia Austin" }),
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "message" },
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-sender" },
-	                                                            "Nicolas"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-time" },
-	                                                            "Friday, September 22"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-subject" },
-	                                                            "New 4K Cameras"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "message-body" },
-	                                                            "The 4K revolution has come over the horizon and is reaching the general populous"
-	                                                        )
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        "li",
-	                                        null,
-	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "dropdown-toggle", "data-toggle": "dropdown", title: "Tasks", href: "#" },
-	                                            _react2.default.createElement("i", { className: "icon fa fa-tasks" }),
-	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "badge" },
-	                                                "4"
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "ul",
-	                                            { className: "pull-right dropdown-menu dropdown-tasks dropdown-arrow " },
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                { className: "dropdown-header bordered-darkorange" },
-	                                                _react2.default.createElement("i", { className: "fa fa-tasks" }),
-	                                                "4 Tasks In Progress"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "clearfix" },
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "pull-left" },
-	                                                            "Account Creation"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "pull-right" },
-	                                                            "65%"
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "progress progress-xs" },
-	                                                        _react2.default.createElement("div", { style: { width: "65%" }, className: "progress-bar" })
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "clearfix" },
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "pull-left" },
-	                                                            "Profile Data"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "pull-right" },
-	                                                            "35%"
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "progress progress-xs" },
-	                                                        _react2.default.createElement("div", { style: { width: "35%" }, className: "progress-bar progress-bar-success" })
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "clearfix" },
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "pull-left" },
-	                                                            "Updating Resume"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "pull-right" },
-	                                                            "75%"
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "progress progress-xs" },
-	                                                        _react2.default.createElement("div", { style: { width: "75%" }, className: "progress-bar progress-bar-darkorange" })
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "clearfix" },
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "pull-left" },
-	                                                            "Adding Contacts"
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            { className: "pull-right" },
-	                                                            "10%"
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        "div",
-	                                                        { className: "progress progress-xs" },
-	                                                        _react2.default.createElement("div", { style: { width: "10%" }, className: "progress-bar progress-bar-warning" })
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                { className: "dropdown-footer" },
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#" },
-	                                                    "See All Tasks"
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    "button",
-	                                                    { className: "btn btn-xs btn-default shiny darkorange icon-only pull-right" },
-	                                                    _react2.default.createElement("i", { className: "fa fa-check" })
-	                                                )
-	                                            )
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        "li",
-	                                        null,
-	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "wave in", id: "chat-link", title: "Chat", href: "#" },
-	                                            _react2.default.createElement("i", { className: "icon glyphicon glyphicon-comment" })
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        "li",
-	                                        null,
-	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "login-area dropdown-toggle", "data-toggle": "dropdown" },
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "avatar", title: "View your public profile" },
-	                                                _react2.default.createElement("img", { src: "assets/img/avatars/adam-jansen.jpg" })
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "section",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "h2",
-	                                                    null,
-	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "profile" },
-	                                                        _react2.default.createElement(
-	                                                            "span",
-	                                                            null,
-	                                                            "David Stevenson"
-	                                                        )
-	                                                    )
-	                                                )
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "ul",
-	                                            { className: "pull-right dropdown-menu dropdown-arrow dropdown-login-area" },
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                { className: "username" },
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    null,
-	                                                    "David Stevenson"
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                { className: "email" },
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    null,
-	                                                    "David.Stevenson@live.com"
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "avatar-area" },
-	                                                    _react2.default.createElement("img", { src: "assets/img/avatars/adam-jansen.jpg", className: "avatar" }),
-	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "caption" },
-	                                                        "Change Photo"
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                { className: "edit" },
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "profile.html", className: "pull-left" },
-	                                                    "Profile"
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "#", className: "pull-right" },
-	                                                    "Setting"
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "li",
-	                                                { className: "dropdown-footer" },
-	                                                _react2.default.createElement(
-	                                                    "a",
-	                                                    { href: "{{ url('/logout') }}", "data-params": "" },
-	                                                    "Logout"
-	                                                )
-	                                            )
-	                                        )
-	                                    )
-	                                ),
+	                                { href: "#" },
 	                                _react2.default.createElement(
 	                                    "div",
-	                                    { className: "setting" },
+	                                    { className: "clearfix" },
 	                                    _react2.default.createElement(
-	                                        "a",
-	                                        { id: "btn-setting", title: "Setting", href: "#" },
-	                                        _react2.default.createElement("i", { className: "icon glyphicon glyphicon-cog" })
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "setting-container" },
-	                                    _react2.default.createElement(
-	                                        "label",
-	                                        null,
-	                                        _react2.default.createElement("input", { type: "checkbox", id: "checkbox_fixednavbar" }),
-	                                        _react2.default.createElement(
-	                                            "span",
-	                                            { className: "text" },
-	                                            "Fixed Navbar"
-	                                        )
+	                                        "div",
+	                                        { className: "notification-icon" },
+	                                        _react2.default.createElement("i", { className: "fa fa-check bg-darkorange white" })
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        "label",
-	                                        null,
-	                                        _react2.default.createElement("input", { type: "checkbox", id: "checkbox_fixedsidebar" }),
+	                                        "div",
+	                                        { className: "notification-body" },
 	                                        _react2.default.createElement(
 	                                            "span",
-	                                            { className: "text" },
-	                                            "Fixed SideBar"
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        "label",
-	                                        null,
-	                                        _react2.default.createElement("input", { type: "checkbox", id: "checkbox_fixedbreadcrumbs" }),
+	                                            { className: "title" },
+	                                            item.label
+	                                        ),
 	                                        _react2.default.createElement(
 	                                            "span",
-	                                            { className: "text" },
-	                                            "Fixed BreadCrumbs"
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        "label",
-	                                        null,
-	                                        _react2.default.createElement("input", { type: "checkbox", id: "checkbox_fixedheader" }),
-	                                        _react2.default.createElement(
-	                                            "span",
-	                                            { className: "text" },
-	                                            "Fixed Header"
+	                                            { className: "description" },
+	                                            item.desc
 	                                        )
 	                                    )
 	                                )
 	                            )
+	                        );
+	                    }),
+	                    _react2.default.createElement(
+	                        "li",
+	                        { className: "dropdown-footer " },
+	                        _react2.default.createElement(
+	                            "span",
+	                            null,
+	                            "Today, March 28"
+	                        ),
+	                        _react2.default.createElement(
+	                            "span",
+	                            { className: "pull-right" },
+	                            "10\xB0c",
+	                            _react2.default.createElement("i", { className: "wi wi-cloudy" })
 	                        )
 	                    )
 	                )
@@ -22276,13 +22268,13 @@
 	        }
 	    }]);
 
-	    return Topnav;
+	    return InvoiceNotification;
 	}(_react2.default.Component);
 
-	exports.default = Topnav;
+	exports.default = InvoiceNotification;
 
 /***/ },
-/* 180 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22314,7 +22306,7 @@
 	    var _this = _possibleConstructorReturn(this, (Leftnav.__proto__ || Object.getPrototypeOf(Leftnav)).call(this, props));
 
 	    _this.state = {
-	      menus: [{ label: 'Home', icon_class: 'fa fa-home', submenu: [] }, { label: 'Warehouse', icon_class: 'fa fa-table', submenu: [{ label: 'Team Members' }, { label: 'Letterhead' }, { label: 'Chat' }, { label: 'Todo List' }, { label: 'Offer List' }] }, { label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [{ label: 'List', ajax_url: 'users' }, { label: 'Add' }] }, { label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [{ label: 'List' }, { label: 'Add' }] }, { label: 'Profile', icon_class: 'fa fa-picture-o', submenu: [] }]
+	      menus: [{ label: 'Home', icon_class: 'fa fa-home', submenu: [] }, { label: 'Warehouse', icon_class: 'fa fa-table', submenu: [{ label: 'Team Members' }, { label: 'Letterhead' }, { label: 'Chat' }, { label: 'Todo List' }, { label: 'Offer List' }] }, { label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [{ label: 'List', ajax_url: 'users' }, { label: 'Add' }] }, { label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [{ label: 'List' }, { label: 'Add' }, { label: 'Print' }] }, { label: 'Profile', icon_class: 'fa fa-picture-o', submenu: [] }]
 	    };
 	    return _this;
 	  }
@@ -22401,7 +22393,7 @@
 	exports.default = Leftnav;
 
 /***/ },
-/* 181 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23114,7 +23106,7 @@
 	exports.default = Post;
 
 /***/ },
-/* 182 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23378,7 +23370,7 @@
 	exports.default = MedicineList;
 
 /***/ },
-/* 183 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23533,7 +23525,7 @@
 	exports.default = TeamMember;
 
 /***/ },
-/* 184 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23724,7 +23716,7 @@
 	exports.default = Profile;
 
 /***/ },
-/* 185 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23747,16 +23739,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Invoice = function (_React$Component) {
-	    _inherits(Invoice, _React$Component);
+	var InvoiceAdd = function (_React$Component) {
+	    _inherits(InvoiceAdd, _React$Component);
 
-	    function Invoice() {
-	        _classCallCheck(this, Invoice);
+	    function InvoiceAdd(props) {
+	        _classCallCheck(this, InvoiceAdd);
 
-	        return _possibleConstructorReturn(this, (Invoice.__proto__ || Object.getPrototypeOf(Invoice)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (InvoiceAdd.__proto__ || Object.getPrototypeOf(InvoiceAdd)).call(this, props));
+
+	        console.log(_this.props);
+	        return _this;
 	    }
 
-	    _createClass(Invoice, [{
+	    _createClass(InvoiceAdd, [{
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -23891,17 +23886,554 @@
 	    }, {
 	        key: "validate",
 	        value: function validate(event) {
-	            event.stopPropagation();
-	            event.prevendDefault();
-	            console.log(event);
-	            return false;
+	            event.preventDefault();
+	            var self = this;
+	            var invoice_notification_items = this.props.container.state.invoice_notification_items;
+	            invoice_notification_items.push({ label: 'This is medicine 1', desc: '10:10 a.m' });
+	            this.props.container.setState({ invoice_notification_items: invoice_notification_items });
 	        }
 	    }]);
 
-	    return Invoice;
+	    return InvoiceAdd;
 	}(_react2.default.Component);
 
-	exports.default = Invoice;
+	exports.default = InvoiceAdd;
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var InvoicePrint = function (_React$Component) {
+	    _inherits(InvoicePrint, _React$Component);
+
+	    function InvoicePrint() {
+	        _classCallCheck(this, InvoicePrint);
+
+	        return _possibleConstructorReturn(this, (InvoicePrint.__proto__ || Object.getPrototypeOf(InvoicePrint)).apply(this, arguments));
+	    }
+
+	    _createClass(InvoicePrint, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "page-content" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "page-breadcrumbs" },
+	                    _react2.default.createElement(
+	                        "ul",
+	                        { className: "breadcrumb" },
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement("i", { className: "fa fa-folder-open" }),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "javascript:void(0);" },
+	                                "Invoice"
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "page-body" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-lg-12 col-sm-12 col-xs-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "letter-head" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "letter-top" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "logo" },
+	                                        _react2.default.createElement(
+	                                            "h1",
+	                                            null,
+	                                            _react2.default.createElement(
+	                                                "a",
+	                                                { href: "#" },
+	                                                _react2.default.createElement("i", { className: "fa fa-laptop lblue" }),
+	                                                " Brave"
+	                                            )
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "letter-head-content" },
+	                                        _react2.default.createElement(
+	                                            "p",
+	                                            null,
+	                                            _react2.default.createElement("i", { className: "fa fa-phone lblue" }),
+	                                            " \xA0 + (838) - 839 934 8930"
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "p",
+	                                            null,
+	                                            _react2.default.createElement("i", { className: "fa fa-envelope lblue" }),
+	                                            " \xA0 info@uksolution.com"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement("div", { className: "clearfix" })
+	                                ),
+	                                _react2.default.createElement("br", null),
+	                                _react2.default.createElement("hr", null),
+	                                _react2.default.createElement("br", null),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "letter-body" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "invoice-content" },
+	                                        _react2.default.createElement(
+	                                            "strong",
+	                                            null,
+	                                            "Invoice \xA0 ",
+	                                            _react2.default.createElement(
+	                                                "span",
+	                                                { className: "lblue" },
+	                                                "#"
+	                                            ),
+	                                            "8982"
+	                                        ),
+	                                        " ",
+	                                        _react2.default.createElement(
+	                                            "strong",
+	                                            { className: "pull-right bold" },
+	                                            "Date : 28/05/2014"
+	                                        ),
+	                                        _react2.default.createElement("div", { className: "clearfix" }),
+	                                        _react2.default.createElement("br", null),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "row" },
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "col-md-6" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "address" },
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "row" },
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "col-md-6 col-sm-6" },
+	                                                            _react2.default.createElement(
+	                                                                "p",
+	                                                                null,
+	                                                                _react2.default.createElement(
+	                                                                    "strong",
+	                                                                    null,
+	                                                                    "Brave Private Ltd.,"
+	                                                                ),
+	                                                                _react2.default.createElement("br", null),
+	                                                                "#89, Chamber Street,",
+	                                                                _react2.default.createElement("br", null),
+	                                                                "West Building Road,",
+	                                                                _react2.default.createElement("br", null),
+	                                                                "London - 838101."
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "col-md-6 col-sm-6" },
+	                                                            _react2.default.createElement(
+	                                                                "p",
+	                                                                null,
+	                                                                _react2.default.createElement("i", { className: "fa fa-phone lblue" }),
+	                                                                " \xA0 + (322) - 829 421 5223",
+	                                                                _react2.default.createElement("br", null),
+	                                                                _react2.default.createElement("i", { className: "fa fa-envelope lblue" }),
+	                                                                " \xA0 service@solution.com",
+	                                                                _react2.default.createElement("br", null),
+	                                                                _react2.default.createElement("i", { className: "fa fa-globe lblue" }),
+	                                                                " \xA0 www.braveltd.com"
+	                                                            )
+	                                                        )
+	                                                    )
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "col-md-6" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "address" },
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "row" },
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "col-md-6 col-sm-6" },
+	                                                            _react2.default.createElement(
+	                                                                "p",
+	                                                                null,
+	                                                                _react2.default.createElement(
+	                                                                    "strong",
+	                                                                    null,
+	                                                                    "Hanks Info Service.,"
+	                                                                ),
+	                                                                _react2.default.createElement("br", null),
+	                                                                "#75, 20th Main Road, ",
+	                                                                _react2.default.createElement("br", null),
+	                                                                "Om Nagar, Madiwala,",
+	                                                                _react2.default.createElement("br", null),
+	                                                                "Bangalore - 560068."
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "col-md-6 col-sm-6" },
+	                                                            _react2.default.createElement(
+	                                                                "p",
+	                                                                null,
+	                                                                _react2.default.createElement("i", { className: "fa fa-phone lblue" }),
+	                                                                " \xA0 + (644) - 523 523 6343",
+	                                                                _react2.default.createElement("br", null),
+	                                                                _react2.default.createElement("i", { className: "fa fa-envelope lblue" }),
+	                                                                " \xA0 info@hanksinfo.com",
+	                                                                _react2.default.createElement("br", null),
+	                                                                _react2.default.createElement("i", { className: "fa fa-globe lblue" }),
+	                                                                " \xA0 www.hanksinfo.com"
+	                                                            )
+	                                                        )
+	                                                    )
+	                                                )
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement("br", null),
+	                                        _react2.default.createElement(
+	                                            "h6",
+	                                            null,
+	                                            "Dear Mr. Mark, "
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "p",
+	                                            null,
+	                                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt  from it but veritatis et quasi architecto beatae who has any right."
+	                                        ),
+	                                        _react2.default.createElement("br", null),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "table-responsive" },
+	                                            _react2.default.createElement(
+	                                                "table",
+	                                                { className: "table table-hover" },
+	                                                _react2.default.createElement(
+	                                                    "tbody",
+	                                                    null,
+	                                                    _react2.default.createElement(
+	                                                        "tr",
+	                                                        null,
+	                                                        _react2.default.createElement(
+	                                                            "th",
+	                                                            null,
+	                                                            "S.No"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "th",
+	                                                            null,
+	                                                            "Item Description"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "th",
+	                                                            null,
+	                                                            "Rate"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "th",
+	                                                            null,
+	                                                            "Quantity"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "th",
+	                                                            null,
+	                                                            "Amount"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "tr",
+	                                                        null,
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "01"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "Sony Laptop (H492d)"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "52000"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "01"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "52,000"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "tr",
+	                                                        null,
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "02"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "Nokia Mobile (Lumia 520)"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "8200"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "02"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "16,400"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "tr",
+	                                                        null,
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "03"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "Nokia Charger(8493F)"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "600"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "05"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "3,000"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "tr",
+	                                                        null,
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "04"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "Apple Ipad (PZ7382)"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "20000"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "02"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "40,000"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "tr",
+	                                                        null,
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "05"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "Apple Laptop (ED8933)"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "66000"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "01"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "td",
+	                                                            null,
+	                                                            "66,000"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "tr",
+	                                                        null,
+	                                                        _react2.default.createElement("th", null),
+	                                                        _react2.default.createElement(
+	                                                            "th",
+	                                                            null,
+	                                                            "Total Amount"
+	                                                        ),
+	                                                        _react2.default.createElement("th", null),
+	                                                        _react2.default.createElement(
+	                                                            "th",
+	                                                            null,
+	                                                            "11"
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "th",
+	                                                            null,
+	                                                            "1,70,400"
+	                                                        )
+	                                                    )
+	                                                )
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "p",
+	                                            null,
+	                                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, quasi architecto beatae vitae dicta sunt  from it but veritatis et quasi architecto beatae  quasi architecto beatae vitae dicta sunt  from it but veritatis et quasi architecto beatae  eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt  from it but veritatis et quasi architecto beatae who has any right."
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement("br", null),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "foot-lside" },
+	                                    "Bangalore",
+	                                    _react2.default.createElement("br", null),
+	                                    "27-5-2014"
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "foot-rside" },
+	                                    "Yours Sincerely,",
+	                                    _react2.default.createElement("br", null),
+	                                    "Ravi Kumar"
+	                                ),
+	                                _react2.default.createElement("div", { className: "clearfix" }),
+	                                _react2.default.createElement("br", null),
+	                                _react2.default.createElement("hr", null),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "letter-foot" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "row" },
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "col-md-4 col-sm-4" },
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "address" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "address-icon" },
+	                                                    _react2.default.createElement("i", { className: "fa fa-building lblue" })
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "address-content" },
+	                                                    "#40, Industrial Estate,",
+	                                                    _react2.default.createElement("br", null),
+	                                                    "Near Global IT Park,",
+	                                                    _react2.default.createElement("br", null),
+	                                                    "Bangalore - 560068."
+	                                                ),
+	                                                _react2.default.createElement("div", { className: "clearfix" })
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "col-md-4 col-sm-4" },
+	                                            _react2.default.createElement("i", { className: "fa fa-phone lblue" }),
+	                                            " \xA0 + (832) - 493 382 4902",
+	                                            _react2.default.createElement("br", null),
+	                                            _react2.default.createElement("i", { className: "fa fa-envelope lblue" }),
+	                                            " \xA0 helpdesk@brave.com"
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "col-md-4 col-sm-4" },
+	                                            _react2.default.createElement("i", { className: "fa fa-fax lblue" }),
+	                                            " \xA0 + (382) 839 839 8930",
+	                                            _react2.default.createElement("br", null),
+	                                            _react2.default.createElement("i", { className: "fa fa-globe lblue" }),
+	                                            " \xA0 www.bravesolution.com"
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return InvoicePrint;
+	}(_react2.default.Component);
+
+	exports.default = InvoicePrint;
 
 /***/ }
 /******/ ]);

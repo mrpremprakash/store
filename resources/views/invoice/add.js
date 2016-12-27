@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default class Invoice extends React.Component {
+export default class InvoiceAdd extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
   render() {
     return (
       <div className="page-content">
@@ -65,9 +69,10 @@ export default class Invoice extends React.Component {
     )
   };
   validate(event) {
-    event.stopPropagation();
-    event.prevendDefault();
-    console.log(event);
-    return false;
+    event.preventDefault();
+    var self = this;
+    var invoice_notification_items = this.props.container.state.invoice_notification_items;
+    invoice_notification_items.push({label: 'This is medicine 1', desc: '10:10 a.m'});
+    this.props.container.setState({invoice_notification_items: invoice_notification_items});
   }
 }
