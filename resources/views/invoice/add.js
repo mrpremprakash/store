@@ -1,11 +1,13 @@
 import React from 'react';
+import toastr from 'toastr';
 
 export default class InvoiceAdd extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+    this.state = {};
   }
   render() {
+    var self = this;
     return (
       <div className="page-content">
         <div className="page-breadcrumbs">
@@ -30,26 +32,26 @@ export default class InvoiceAdd extends React.Component {
                                 <div className="form-group">
                                     <label for="inputEmail3" className="col-sm-2 control-label no-padding-right">Name:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Medicine Name" name="medicine_name"/>
+                                        <input type="text" className="form-control" placeholder="Medicine Name" name="medicine_name" value={self.state.medicine_name}/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label for="inputPassword3" className="col-sm-2 control-label no-padding-right">Quantity:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Quantity"/>
+                                        <input type="text" className="form-control" placeholder="Quantity" value={self.state.quantity}/>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label for="inputPassword3" className="col-sm-2 control-label no-padding-right">Price:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Price"/>
+                                        <input type="text" className="form-control" placeholder="Price" value={self.state.price}/>
                                     </div>
                                 </div>
 
                                 <div className="form-group">
                                     <label for="inputPassword3" className="col-sm-2 control-label no-padding-right">Discount:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Discount"/>
+                                        <input type="text" className="form-control" placeholder="Discount" value={this.state.discount}/>
                                     </div>
                                 </div>
 
@@ -72,7 +74,12 @@ export default class InvoiceAdd extends React.Component {
     event.preventDefault();
     var self = this;
     var invoice_notification_items = this.props.container.state.invoice_notification_items;
-    invoice_notification_items.push({label: 'This is medicine 1', desc: '10:10 a.m'});
+    invoice_notification_items.push({
+      label: this.state.medicine_name,
+      desc: 'Quantity: '+this.state.quantity,
+      price: this.state.price
+    });
     this.props.container.setState({invoice_notification_items: invoice_notification_items});
+    toastr["success"]("'" +this.state.medicine_name+ "' added successfully!")
   }
 }
