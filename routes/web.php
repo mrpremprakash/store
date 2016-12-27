@@ -22,6 +22,12 @@ Route::get('/medicines', 'MedicineController@index');
 Route::get('/members', 'MemberController@index');
 Route::resource('store', 'StoreController');
 Route::resource('store_utility', 'UtilityController');
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::resource('shop_medicine', 'Shop_medicineController');
+});
+
+//Route::resource('shop_medicine', 'Shop_medicineController');
 
 Route::get('/invoice', function () {
     return view('pages.invoice');
@@ -39,9 +45,13 @@ Route::post('/update-store/{id}','StoreController@update');
 
 Route::group(['prefix' => 'api'], function () {
     Route::get('/store', 'ApiController@index');
+    Route::get('/medicine', 'ApiController@get_medicine_list');
     Route::get('/store/{slug}', 'ApiController@get_store_by_slug');
     Route::get('/update_database', 'ApiController@update_database');
     Route::post('/post_store', 'ApiController@post_store');
+    Route::get('/csrf', function() {
+    return Session::token();
+});
 });
 
 Route::get('harvest_store', 'UtilityController@harvest_store');
