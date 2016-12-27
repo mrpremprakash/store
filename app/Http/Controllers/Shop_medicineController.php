@@ -25,8 +25,13 @@ class Shop_medicineController extends Controller
     {
         $shop_id = Auth::user()->shop_id;
         if($shop_id){
-                $shop_medicine = Shop_medicine::join('medicine', 'medicine.id', '=', 'shop_medicines.shop_id')
-                        ->select('medicine.*')
+                $url_prefix=url('/assets/img/medicines');
+                $shop_medicine = Shop_medicine::join('medicine', 'medicine.id', '=', 'shop_medicines.medicine_id')
+                        ->select(
+                                'shop_medicines.id',
+                                'medicine.name',
+                                DB::raw("(CONCAT('".$url_prefix."','/',medicine.man_cmp_logo)) as `img`")
+                                )
                         ->where('shop_medicines.shop_id','=',$shop_id)->get();
                 $res_count= $shop_medicine->count();
                 $result = $shop_medicine->toArray();

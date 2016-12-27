@@ -233,8 +233,12 @@ class ApiController extends Controller
     }
     
     public function get_medicine_list(){
+        $url_prefix=url('/assets/img/medicines');
         $keyword = Input::get('keyword');
         $medicine = DB::table('medicine')
+                ->select('medicine.id','medicine.name'
+                                ,DB::raw("(CONCAT('".$url_prefix."','/',medicine.man_cmp_logo)) as `img`")
+                                )
                 ->where('name', 'like', "%$keyword%")
                 ->get();
         $medicine_count = $medicine->count();
