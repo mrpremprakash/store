@@ -1,6 +1,7 @@
 import React from 'react';
 import toastr from 'toastr';
-
+import validate from 'validate.js';
+import validationRules from '../validation/rules.js';
 export default class InvoiceAdd extends React.Component {
   constructor(props) {
     super(props);
@@ -28,30 +29,32 @@ export default class InvoiceAdd extends React.Component {
                     </div>
                     <div className="widget-body">
                         <div>
-                            <form className="form-horizontal form-bordered" role="form" onSubmit={this.validate.bind(this)}>
+                            <form className="form-horizontal form-bordered add-invoice-form" role="form" onSubmit={this.validate.bind(this)}>
                                 <div className="form-group">
                                     <label for="inputEmail3" className="col-sm-2 control-label no-padding-right">Name:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Medicine Name" name="medicine_name" value={self.state.medicine_name}/>
+                                        <input type="text" className="form-control" placeholder="Medicine Name" name="medicine_name" ref={(medicine_name) => this.medicine_name = medicine_name}/>
+                                        <span className="widget-caption themesecondary error-msg"></span>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label for="inputPassword3" className="col-sm-2 control-label no-padding-right">Quantity:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Quantity" value={self.state.quantity}/>
+                                        <input type="text" className="form-control" placeholder="Quantity" ref={(quantity) => this.quantity = quantity}/>
+                                        <span className="widget-caption themesecondary error-msg"></span>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label for="inputPassword3" className="col-sm-2 control-label no-padding-right">Price:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Price" value={self.state.price}/>
+                                        <input type="text" className="form-control" placeholder="Price" ref={(price) => this.price = price}/>
                                     </div>
                                 </div>
 
                                 <div className="form-group">
                                     <label for="inputPassword3" className="col-sm-2 control-label no-padding-right">Discount:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Discount" value={this.state.discount}/>
+                                        <input type="text" className="form-control" placeholder="Discount" ref={(discount) => this.discount = discount}/>
                                     </div>
                                 </div>
 
@@ -72,14 +75,27 @@ export default class InvoiceAdd extends React.Component {
   };
   validate(event) {
     event.preventDefault();
+    var errors = validate({medicine_name: this.medicine_name.value, quantity: this.quantity.value}, validationRules);
+    console.log(errors);
     var self = this;
-    var invoice_notification_items = this.props.container.state.invoice_notification_items;
-    invoice_notification_items.push({
-      label: this.state.medicine_name,
-      desc: 'Quantity: '+this.state.quantity,
-      price: this.state.price
-    });
-    this.props.container.setState({invoice_notification_items: invoice_notification_items});
-    toastr["success"]("'" +this.state.medicine_name+ "' added successfully!")
+    this.showErrorMessage(errors);
+    if(typeof errors == 'undefined') {
+      var invoice_notification_items = this.props.container.state.invoice_notification_items;
+      invoice_notification_items.push({
+        label: this.medicine_name.value,
+        desc: 'Quantity: '+this.quantity.value,
+        price: this.price.value
+      });
+      this.props.container.setState({invoice_notification_items: invoice_notification_items});
+      toastr["success"]("'" + this.medicine_name.value + "' added successfully!");
+      $('form.add-invoice-form')[0].reset();
+    }
+  };
+  showErrorMessage(errors) {
+    var form = $('form.add-invoice-form');
+    form.find('.error-msg').text('');
+    for(var input_name in errors) {
+      $(this[input_name]).parent().find('.error-msg').text(errors[input_name][0]);
+    }
   }
 }
