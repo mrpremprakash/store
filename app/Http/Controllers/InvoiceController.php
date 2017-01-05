@@ -69,11 +69,16 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
+        echo $request->medicine_id[0];
         print_r($_POST);
         exit();
         
         for($i=0;$i<count($request->medicine_id);$i++){
-            //if()
+            $medicine_id = $request->medicine_id[$i];
+            $shop_id = 1;//Auth::user()->shop_id;
+            if($request->is_shop_medicine[$i]==1){
+                $this->__insert_shop_medicine($shop_id, $medicine_id);
+            }
         }
         
         $Shop_medicines = new Shop_medicine;
