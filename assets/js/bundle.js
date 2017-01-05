@@ -21519,7 +21519,7 @@
 
 	var _add2 = _interopRequireDefault(_add);
 
-	var _print = __webpack_require__(194);
+	var _print = __webpack_require__(196);
 
 	var _print2 = _interopRequireDefault(_print);
 
@@ -22205,7 +22205,7 @@
 	                _react2.default.createElement(
 	                    "a",
 	                    { className: " dropdown-toggle wave in", "data-toggle": "dropdown", title: "Notifications", href: "#" },
-	                    _react2.default.createElement("i", { className: "icon fa fa-warning" }),
+	                    _react2.default.createElement("i", { className: "icon fa fa-medkit" }),
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "badge" },
@@ -23732,7 +23732,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -23753,6 +23753,8 @@
 
 	var _rules2 = _interopRequireDefault(_rules);
 
+	__webpack_require__(194);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23762,194 +23764,205 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var InvoiceAdd = function (_React$Component) {
-	    _inherits(InvoiceAdd, _React$Component);
+	  _inherits(InvoiceAdd, _React$Component);
 
-	    function InvoiceAdd(props) {
-	        _classCallCheck(this, InvoiceAdd);
+	  function InvoiceAdd(props) {
+	    _classCallCheck(this, InvoiceAdd);
 
-	        var _this = _possibleConstructorReturn(this, (InvoiceAdd.__proto__ || Object.getPrototypeOf(InvoiceAdd)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (InvoiceAdd.__proto__ || Object.getPrototypeOf(InvoiceAdd)).call(this, props));
 
-	        _this.state = {};
-	        return _this;
-	    }
+	    _this.state = {};
+	    return _this;
+	  }
 
-	    _createClass(InvoiceAdd, [{
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
+	  _createClass(InvoiceAdd, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
 
-	            var self = this;
-	            return _react2.default.createElement(
+	      var self = this;
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'page-content' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'page-breadcrumbs' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'breadcrumb' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement('i', { className: 'fa fa-folder-open' }),
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'javascript:void(0);' },
+	                'Invoice'
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'page-body' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-lg-12 col-sm-12 col-xs-12' },
+	              _react2.default.createElement(
 	                'div',
-	                { className: 'page-content' },
+	                { className: 'widget' },
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'page-breadcrumbs' },
-	                    _react2.default.createElement(
-	                        'ul',
-	                        { className: 'breadcrumb' },
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            _react2.default.createElement('i', { className: 'fa fa-folder-open' }),
-	                            _react2.default.createElement(
-	                                'a',
-	                                { href: 'javascript:void(0);' },
-	                                'Invoice'
-	                            )
-	                        )
-	                    )
+	                  'div',
+	                  { className: 'widget-header bordered-bottom bordered-palegreen' },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { className: 'widget-caption' },
+	                    'Create New Invoice'
+	                  )
 	                ),
 	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'widget-body' },
+	                  _react2.default.createElement(
 	                    'div',
-	                    { className: 'page-body' },
+	                    null,
 	                    _react2.default.createElement(
+	                      'form',
+	                      { className: 'form-horizontal form-bordered add-invoice-form', role: 'form', onSubmit: this.validate.bind(this) },
+	                      _react2.default.createElement(
 	                        'div',
-	                        { className: 'row' },
+	                        { className: 'form-group' },
 	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-lg-12 col-sm-12 col-xs-12' },
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'widget' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'widget-header bordered-bottom bordered-palegreen' },
-	                                    _react2.default.createElement(
-	                                        'span',
-	                                        { className: 'widget-caption' },
-	                                        'Create New Invoice'
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'widget-body' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        null,
-	                                        _react2.default.createElement(
-	                                            'form',
-	                                            { className: 'form-horizontal form-bordered add-invoice-form', role: 'form', onSubmit: this.validate.bind(this) },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'form-group' },
-	                                                _react2.default.createElement(
-	                                                    'label',
-	                                                    { 'for': 'inputEmail3', className: 'col-sm-2 control-label no-padding-right' },
-	                                                    'Name:'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'col-sm-10' },
-	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Medicine Name', name: 'medicine_name', ref: function ref(medicine_name) {
-	                                                            return _this2.medicine_name = medicine_name;
-	                                                        } }),
-	                                                    _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'form-group' },
-	                                                _react2.default.createElement(
-	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
-	                                                    'Quantity:'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'col-sm-10' },
-	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Quantity', ref: function ref(quantity) {
-	                                                            return _this2.quantity = quantity;
-	                                                        } }),
-	                                                    _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'form-group' },
-	                                                _react2.default.createElement(
-	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
-	                                                    'Price:'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'col-sm-10' },
-	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Price', ref: function ref(price) {
-	                                                            return _this2.price = price;
-	                                                        } })
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'form-group' },
-	                                                _react2.default.createElement(
-	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
-	                                                    'Discount:'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'col-sm-10' },
-	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Discount', ref: function ref(discount) {
-	                                                            return _this2.discount = discount;
-	                                                        } })
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'form-group' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'col-sm-offset-2 col-sm-10' },
-	                                                    _react2.default.createElement(
-	                                                        'button',
-	                                                        { type: 'submit', className: 'btn btn-palegreen' },
-	                                                        'Add To Cart'
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    )
-	                                )
-	                            )
+	                          'label',
+	                          { 'for': 'inputEmail3', className: 'col-sm-2 control-label no-padding-right' },
+	                          'Name:'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-10' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Medicine Name', name: 'medicine_name', id: 'tags', ref: function ref(medicine_name) {
+	                              return _this2.medicine_name = medicine_name;
+	                            } }),
+	                          _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
 	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                          'Quantity:'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-10' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Quantity', ref: function ref(quantity) {
+	                              return _this2.quantity = quantity;
+	                            } }),
+	                          _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                          'Price:'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-10' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Price', ref: function ref(price) {
+	                              return _this2.price = price;
+	                            } })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                          'Discount:'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-10' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Discount', ref: function ref(discount) {
+	                              return _this2.discount = discount;
+	                            } })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-offset-2 col-sm-10' },
+	                          _react2.default.createElement(
+	                            'button',
+	                            { type: 'submit', className: 'btn btn-palegreen' },
+	                            'Add To Cart'
+	                          )
+	                        )
+	                      )
 	                    )
+	                  )
 	                )
-	            );
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }, {
+	    key: 'validate',
+	    value: function validate(event) {
+	      event.preventDefault();
+	      var errors = (0, _validate3.default)({ medicine_name: this.medicine_name.value, quantity: this.quantity.value }, _rules2.default);
+	      console.log(errors);
+	      var self = this;
+	      this.showErrorMessage(errors);
+	      if (typeof errors == 'undefined') {
+	        var invoice_notification_items = this.props.container.state.invoice_notification_items;
+	        invoice_notification_items.push({
+	          label: this.medicine_name.value,
+	          desc: 'Quantity: ' + this.quantity.value,
+	          price: this.price.value
+	        });
+	        this.props.container.setState({ invoice_notification_items: invoice_notification_items });
+	        _toastr2.default["success"]("'" + this.medicine_name.value + "' added successfully!");
+	        $('form.add-invoice-form')[0].reset();
+	      }
+	    }
+	  }, {
+	    key: 'showErrorMessage',
+	    value: function showErrorMessage(errors) {
+	      var form = $('form.add-invoice-form');
+	      form.find('.error-msg').text('');
+	      for (var input_name in errors) {
+	        $(this[input_name]).parent().find('.error-msg').text(errors[input_name][0]);
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      $("#tags").autocomplete({
+	        source: "api/medicine",
+	        minLength: 2,
+	        select: function select(event, ui) {
+	          log("Selected: " + ui.item.value + " aka " + ui.item.id);
 	        }
-	    }, {
-	        key: 'validate',
-	        value: function validate(event) {
-	            event.preventDefault();
-	            var errors = (0, _validate3.default)({ medicine_name: this.medicine_name.value, quantity: this.quantity.value }, _rules2.default);
-	            console.log(errors);
-	            var self = this;
-	            this.showErrorMessage(errors);
-	            if (typeof errors == 'undefined') {
-	                var invoice_notification_items = this.props.container.state.invoice_notification_items;
-	                invoice_notification_items.push({
-	                    label: this.medicine_name.value,
-	                    desc: 'Quantity: ' + this.quantity.value,
-	                    price: this.price.value
-	                });
-	                this.props.container.setState({ invoice_notification_items: invoice_notification_items });
-	                _toastr2.default["success"]("'" + this.medicine_name.value + "' added successfully!");
-	                $('form.add-invoice-form')[0].reset();
-	            }
-	        }
-	    }, {
-	        key: 'showErrorMessage',
-	        value: function showErrorMessage(errors) {
-	            var form = $('form.add-invoice-form');
-	            form.find('.error-msg').text('');
-	            for (var input_name in errors) {
-	                $(this[input_name]).parent().find('.error-msg').text(errors[input_name][0]);
-	            }
-	        }
-	    }]);
+	      });
+	    }
+	  }]);
 
-	    return InvoiceAdd;
+	  return InvoiceAdd;
 	}(_react2.default.Component);
 
 	exports.default = InvoiceAdd;
@@ -35844,6 +35857,768 @@
 
 /***/ },
 /* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * jQuery UI Widget 1.12.1
+	 * http://jqueryui.com
+	 *
+	 * Copyright jQuery Foundation and other contributors
+	 * Released under the MIT license.
+	 * http://jquery.org/license
+	 */
+
+	//>>label: Widget
+	//>>group: Core
+	//>>description: Provides a factory for creating stateful widgets with a common API.
+	//>>docs: http://api.jqueryui.com/jQuery.widget/
+	//>>demos: http://jqueryui.com/widget/
+
+	( function( factory ) {
+		if ( true ) {
+
+			// AMD. Register as an anonymous module.
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(189), __webpack_require__(195) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+
+			// Browser globals
+			factory( jQuery );
+		}
+	}( function( $ ) {
+
+	var widgetUuid = 0;
+	var widgetSlice = Array.prototype.slice;
+
+	$.cleanData = ( function( orig ) {
+		return function( elems ) {
+			var events, elem, i;
+			for ( i = 0; ( elem = elems[ i ] ) != null; i++ ) {
+				try {
+
+					// Only trigger remove when necessary to save time
+					events = $._data( elem, "events" );
+					if ( events && events.remove ) {
+						$( elem ).triggerHandler( "remove" );
+					}
+
+				// Http://bugs.jquery.com/ticket/8235
+				} catch ( e ) {}
+			}
+			orig( elems );
+		};
+	} )( $.cleanData );
+
+	$.widget = function( name, base, prototype ) {
+		var existingConstructor, constructor, basePrototype;
+
+		// ProxiedPrototype allows the provided prototype to remain unmodified
+		// so that it can be used as a mixin for multiple widgets (#8876)
+		var proxiedPrototype = {};
+
+		var namespace = name.split( "." )[ 0 ];
+		name = name.split( "." )[ 1 ];
+		var fullName = namespace + "-" + name;
+
+		if ( !prototype ) {
+			prototype = base;
+			base = $.Widget;
+		}
+
+		if ( $.isArray( prototype ) ) {
+			prototype = $.extend.apply( null, [ {} ].concat( prototype ) );
+		}
+
+		// Create selector for plugin
+		$.expr[ ":" ][ fullName.toLowerCase() ] = function( elem ) {
+			return !!$.data( elem, fullName );
+		};
+
+		$[ namespace ] = $[ namespace ] || {};
+		existingConstructor = $[ namespace ][ name ];
+		constructor = $[ namespace ][ name ] = function( options, element ) {
+
+			// Allow instantiation without "new" keyword
+			if ( !this._createWidget ) {
+				return new constructor( options, element );
+			}
+
+			// Allow instantiation without initializing for simple inheritance
+			// must use "new" keyword (the code above always passes args)
+			if ( arguments.length ) {
+				this._createWidget( options, element );
+			}
+		};
+
+		// Extend with the existing constructor to carry over any static properties
+		$.extend( constructor, existingConstructor, {
+			version: prototype.version,
+
+			// Copy the object used to create the prototype in case we need to
+			// redefine the widget later
+			_proto: $.extend( {}, prototype ),
+
+			// Track widgets that inherit from this widget in case this widget is
+			// redefined after a widget inherits from it
+			_childConstructors: []
+		} );
+
+		basePrototype = new base();
+
+		// We need to make the options hash a property directly on the new instance
+		// otherwise we'll modify the options hash on the prototype that we're
+		// inheriting from
+		basePrototype.options = $.widget.extend( {}, basePrototype.options );
+		$.each( prototype, function( prop, value ) {
+			if ( !$.isFunction( value ) ) {
+				proxiedPrototype[ prop ] = value;
+				return;
+			}
+			proxiedPrototype[ prop ] = ( function() {
+				function _super() {
+					return base.prototype[ prop ].apply( this, arguments );
+				}
+
+				function _superApply( args ) {
+					return base.prototype[ prop ].apply( this, args );
+				}
+
+				return function() {
+					var __super = this._super;
+					var __superApply = this._superApply;
+					var returnValue;
+
+					this._super = _super;
+					this._superApply = _superApply;
+
+					returnValue = value.apply( this, arguments );
+
+					this._super = __super;
+					this._superApply = __superApply;
+
+					return returnValue;
+				};
+			} )();
+		} );
+		constructor.prototype = $.widget.extend( basePrototype, {
+
+			// TODO: remove support for widgetEventPrefix
+			// always use the name + a colon as the prefix, e.g., draggable:start
+			// don't prefix for widgets that aren't DOM-based
+			widgetEventPrefix: existingConstructor ? ( basePrototype.widgetEventPrefix || name ) : name
+		}, proxiedPrototype, {
+			constructor: constructor,
+			namespace: namespace,
+			widgetName: name,
+			widgetFullName: fullName
+		} );
+
+		// If this widget is being redefined then we need to find all widgets that
+		// are inheriting from it and redefine all of them so that they inherit from
+		// the new version of this widget. We're essentially trying to replace one
+		// level in the prototype chain.
+		if ( existingConstructor ) {
+			$.each( existingConstructor._childConstructors, function( i, child ) {
+				var childPrototype = child.prototype;
+
+				// Redefine the child widget using the same prototype that was
+				// originally used, but inherit from the new version of the base
+				$.widget( childPrototype.namespace + "." + childPrototype.widgetName, constructor,
+					child._proto );
+			} );
+
+			// Remove the list of existing child constructors from the old constructor
+			// so the old child constructors can be garbage collected
+			delete existingConstructor._childConstructors;
+		} else {
+			base._childConstructors.push( constructor );
+		}
+
+		$.widget.bridge( name, constructor );
+
+		return constructor;
+	};
+
+	$.widget.extend = function( target ) {
+		var input = widgetSlice.call( arguments, 1 );
+		var inputIndex = 0;
+		var inputLength = input.length;
+		var key;
+		var value;
+
+		for ( ; inputIndex < inputLength; inputIndex++ ) {
+			for ( key in input[ inputIndex ] ) {
+				value = input[ inputIndex ][ key ];
+				if ( input[ inputIndex ].hasOwnProperty( key ) && value !== undefined ) {
+
+					// Clone objects
+					if ( $.isPlainObject( value ) ) {
+						target[ key ] = $.isPlainObject( target[ key ] ) ?
+							$.widget.extend( {}, target[ key ], value ) :
+
+							// Don't extend strings, arrays, etc. with objects
+							$.widget.extend( {}, value );
+
+					// Copy everything else by reference
+					} else {
+						target[ key ] = value;
+					}
+				}
+			}
+		}
+		return target;
+	};
+
+	$.widget.bridge = function( name, object ) {
+		var fullName = object.prototype.widgetFullName || name;
+		$.fn[ name ] = function( options ) {
+			var isMethodCall = typeof options === "string";
+			var args = widgetSlice.call( arguments, 1 );
+			var returnValue = this;
+
+			if ( isMethodCall ) {
+
+				// If this is an empty collection, we need to have the instance method
+				// return undefined instead of the jQuery instance
+				if ( !this.length && options === "instance" ) {
+					returnValue = undefined;
+				} else {
+					this.each( function() {
+						var methodValue;
+						var instance = $.data( this, fullName );
+
+						if ( options === "instance" ) {
+							returnValue = instance;
+							return false;
+						}
+
+						if ( !instance ) {
+							return $.error( "cannot call methods on " + name +
+								" prior to initialization; " +
+								"attempted to call method '" + options + "'" );
+						}
+
+						if ( !$.isFunction( instance[ options ] ) || options.charAt( 0 ) === "_" ) {
+							return $.error( "no such method '" + options + "' for " + name +
+								" widget instance" );
+						}
+
+						methodValue = instance[ options ].apply( instance, args );
+
+						if ( methodValue !== instance && methodValue !== undefined ) {
+							returnValue = methodValue && methodValue.jquery ?
+								returnValue.pushStack( methodValue.get() ) :
+								methodValue;
+							return false;
+						}
+					} );
+				}
+			} else {
+
+				// Allow multiple hashes to be passed on init
+				if ( args.length ) {
+					options = $.widget.extend.apply( null, [ options ].concat( args ) );
+				}
+
+				this.each( function() {
+					var instance = $.data( this, fullName );
+					if ( instance ) {
+						instance.option( options || {} );
+						if ( instance._init ) {
+							instance._init();
+						}
+					} else {
+						$.data( this, fullName, new object( options, this ) );
+					}
+				} );
+			}
+
+			return returnValue;
+		};
+	};
+
+	$.Widget = function( /* options, element */ ) {};
+	$.Widget._childConstructors = [];
+
+	$.Widget.prototype = {
+		widgetName: "widget",
+		widgetEventPrefix: "",
+		defaultElement: "<div>",
+
+		options: {
+			classes: {},
+			disabled: false,
+
+			// Callbacks
+			create: null
+		},
+
+		_createWidget: function( options, element ) {
+			element = $( element || this.defaultElement || this )[ 0 ];
+			this.element = $( element );
+			this.uuid = widgetUuid++;
+			this.eventNamespace = "." + this.widgetName + this.uuid;
+
+			this.bindings = $();
+			this.hoverable = $();
+			this.focusable = $();
+			this.classesElementLookup = {};
+
+			if ( element !== this ) {
+				$.data( element, this.widgetFullName, this );
+				this._on( true, this.element, {
+					remove: function( event ) {
+						if ( event.target === element ) {
+							this.destroy();
+						}
+					}
+				} );
+				this.document = $( element.style ?
+
+					// Element within the document
+					element.ownerDocument :
+
+					// Element is window or document
+					element.document || element );
+				this.window = $( this.document[ 0 ].defaultView || this.document[ 0 ].parentWindow );
+			}
+
+			this.options = $.widget.extend( {},
+				this.options,
+				this._getCreateOptions(),
+				options );
+
+			this._create();
+
+			if ( this.options.disabled ) {
+				this._setOptionDisabled( this.options.disabled );
+			}
+
+			this._trigger( "create", null, this._getCreateEventData() );
+			this._init();
+		},
+
+		_getCreateOptions: function() {
+			return {};
+		},
+
+		_getCreateEventData: $.noop,
+
+		_create: $.noop,
+
+		_init: $.noop,
+
+		destroy: function() {
+			var that = this;
+
+			this._destroy();
+			$.each( this.classesElementLookup, function( key, value ) {
+				that._removeClass( value, key );
+			} );
+
+			// We can probably remove the unbind calls in 2.0
+			// all event bindings should go through this._on()
+			this.element
+				.off( this.eventNamespace )
+				.removeData( this.widgetFullName );
+			this.widget()
+				.off( this.eventNamespace )
+				.removeAttr( "aria-disabled" );
+
+			// Clean up events and states
+			this.bindings.off( this.eventNamespace );
+		},
+
+		_destroy: $.noop,
+
+		widget: function() {
+			return this.element;
+		},
+
+		option: function( key, value ) {
+			var options = key;
+			var parts;
+			var curOption;
+			var i;
+
+			if ( arguments.length === 0 ) {
+
+				// Don't return a reference to the internal hash
+				return $.widget.extend( {}, this.options );
+			}
+
+			if ( typeof key === "string" ) {
+
+				// Handle nested keys, e.g., "foo.bar" => { foo: { bar: ___ } }
+				options = {};
+				parts = key.split( "." );
+				key = parts.shift();
+				if ( parts.length ) {
+					curOption = options[ key ] = $.widget.extend( {}, this.options[ key ] );
+					for ( i = 0; i < parts.length - 1; i++ ) {
+						curOption[ parts[ i ] ] = curOption[ parts[ i ] ] || {};
+						curOption = curOption[ parts[ i ] ];
+					}
+					key = parts.pop();
+					if ( arguments.length === 1 ) {
+						return curOption[ key ] === undefined ? null : curOption[ key ];
+					}
+					curOption[ key ] = value;
+				} else {
+					if ( arguments.length === 1 ) {
+						return this.options[ key ] === undefined ? null : this.options[ key ];
+					}
+					options[ key ] = value;
+				}
+			}
+
+			this._setOptions( options );
+
+			return this;
+		},
+
+		_setOptions: function( options ) {
+			var key;
+
+			for ( key in options ) {
+				this._setOption( key, options[ key ] );
+			}
+
+			return this;
+		},
+
+		_setOption: function( key, value ) {
+			if ( key === "classes" ) {
+				this._setOptionClasses( value );
+			}
+
+			this.options[ key ] = value;
+
+			if ( key === "disabled" ) {
+				this._setOptionDisabled( value );
+			}
+
+			return this;
+		},
+
+		_setOptionClasses: function( value ) {
+			var classKey, elements, currentElements;
+
+			for ( classKey in value ) {
+				currentElements = this.classesElementLookup[ classKey ];
+				if ( value[ classKey ] === this.options.classes[ classKey ] ||
+						!currentElements ||
+						!currentElements.length ) {
+					continue;
+				}
+
+				// We are doing this to create a new jQuery object because the _removeClass() call
+				// on the next line is going to destroy the reference to the current elements being
+				// tracked. We need to save a copy of this collection so that we can add the new classes
+				// below.
+				elements = $( currentElements.get() );
+				this._removeClass( currentElements, classKey );
+
+				// We don't use _addClass() here, because that uses this.options.classes
+				// for generating the string of classes. We want to use the value passed in from
+				// _setOption(), this is the new value of the classes option which was passed to
+				// _setOption(). We pass this value directly to _classes().
+				elements.addClass( this._classes( {
+					element: elements,
+					keys: classKey,
+					classes: value,
+					add: true
+				} ) );
+			}
+		},
+
+		_setOptionDisabled: function( value ) {
+			this._toggleClass( this.widget(), this.widgetFullName + "-disabled", null, !!value );
+
+			// If the widget is becoming disabled, then nothing is interactive
+			if ( value ) {
+				this._removeClass( this.hoverable, null, "ui-state-hover" );
+				this._removeClass( this.focusable, null, "ui-state-focus" );
+			}
+		},
+
+		enable: function() {
+			return this._setOptions( { disabled: false } );
+		},
+
+		disable: function() {
+			return this._setOptions( { disabled: true } );
+		},
+
+		_classes: function( options ) {
+			var full = [];
+			var that = this;
+
+			options = $.extend( {
+				element: this.element,
+				classes: this.options.classes || {}
+			}, options );
+
+			function processClassString( classes, checkOption ) {
+				var current, i;
+				for ( i = 0; i < classes.length; i++ ) {
+					current = that.classesElementLookup[ classes[ i ] ] || $();
+					if ( options.add ) {
+						current = $( $.unique( current.get().concat( options.element.get() ) ) );
+					} else {
+						current = $( current.not( options.element ).get() );
+					}
+					that.classesElementLookup[ classes[ i ] ] = current;
+					full.push( classes[ i ] );
+					if ( checkOption && options.classes[ classes[ i ] ] ) {
+						full.push( options.classes[ classes[ i ] ] );
+					}
+				}
+			}
+
+			this._on( options.element, {
+				"remove": "_untrackClassesElement"
+			} );
+
+			if ( options.keys ) {
+				processClassString( options.keys.match( /\S+/g ) || [], true );
+			}
+			if ( options.extra ) {
+				processClassString( options.extra.match( /\S+/g ) || [] );
+			}
+
+			return full.join( " " );
+		},
+
+		_untrackClassesElement: function( event ) {
+			var that = this;
+			$.each( that.classesElementLookup, function( key, value ) {
+				if ( $.inArray( event.target, value ) !== -1 ) {
+					that.classesElementLookup[ key ] = $( value.not( event.target ).get() );
+				}
+			} );
+		},
+
+		_removeClass: function( element, keys, extra ) {
+			return this._toggleClass( element, keys, extra, false );
+		},
+
+		_addClass: function( element, keys, extra ) {
+			return this._toggleClass( element, keys, extra, true );
+		},
+
+		_toggleClass: function( element, keys, extra, add ) {
+			add = ( typeof add === "boolean" ) ? add : extra;
+			var shift = ( typeof element === "string" || element === null ),
+				options = {
+					extra: shift ? keys : extra,
+					keys: shift ? element : keys,
+					element: shift ? this.element : element,
+					add: add
+				};
+			options.element.toggleClass( this._classes( options ), add );
+			return this;
+		},
+
+		_on: function( suppressDisabledCheck, element, handlers ) {
+			var delegateElement;
+			var instance = this;
+
+			// No suppressDisabledCheck flag, shuffle arguments
+			if ( typeof suppressDisabledCheck !== "boolean" ) {
+				handlers = element;
+				element = suppressDisabledCheck;
+				suppressDisabledCheck = false;
+			}
+
+			// No element argument, shuffle and use this.element
+			if ( !handlers ) {
+				handlers = element;
+				element = this.element;
+				delegateElement = this.widget();
+			} else {
+				element = delegateElement = $( element );
+				this.bindings = this.bindings.add( element );
+			}
+
+			$.each( handlers, function( event, handler ) {
+				function handlerProxy() {
+
+					// Allow widgets to customize the disabled handling
+					// - disabled as an array instead of boolean
+					// - disabled class as method for disabling individual parts
+					if ( !suppressDisabledCheck &&
+							( instance.options.disabled === true ||
+							$( this ).hasClass( "ui-state-disabled" ) ) ) {
+						return;
+					}
+					return ( typeof handler === "string" ? instance[ handler ] : handler )
+						.apply( instance, arguments );
+				}
+
+				// Copy the guid so direct unbinding works
+				if ( typeof handler !== "string" ) {
+					handlerProxy.guid = handler.guid =
+						handler.guid || handlerProxy.guid || $.guid++;
+				}
+
+				var match = event.match( /^([\w:-]*)\s*(.*)$/ );
+				var eventName = match[ 1 ] + instance.eventNamespace;
+				var selector = match[ 2 ];
+
+				if ( selector ) {
+					delegateElement.on( eventName, selector, handlerProxy );
+				} else {
+					element.on( eventName, handlerProxy );
+				}
+			} );
+		},
+
+		_off: function( element, eventName ) {
+			eventName = ( eventName || "" ).split( " " ).join( this.eventNamespace + " " ) +
+				this.eventNamespace;
+			element.off( eventName ).off( eventName );
+
+			// Clear the stack to avoid memory leaks (#10056)
+			this.bindings = $( this.bindings.not( element ).get() );
+			this.focusable = $( this.focusable.not( element ).get() );
+			this.hoverable = $( this.hoverable.not( element ).get() );
+		},
+
+		_delay: function( handler, delay ) {
+			function handlerProxy() {
+				return ( typeof handler === "string" ? instance[ handler ] : handler )
+					.apply( instance, arguments );
+			}
+			var instance = this;
+			return setTimeout( handlerProxy, delay || 0 );
+		},
+
+		_hoverable: function( element ) {
+			this.hoverable = this.hoverable.add( element );
+			this._on( element, {
+				mouseenter: function( event ) {
+					this._addClass( $( event.currentTarget ), null, "ui-state-hover" );
+				},
+				mouseleave: function( event ) {
+					this._removeClass( $( event.currentTarget ), null, "ui-state-hover" );
+				}
+			} );
+		},
+
+		_focusable: function( element ) {
+			this.focusable = this.focusable.add( element );
+			this._on( element, {
+				focusin: function( event ) {
+					this._addClass( $( event.currentTarget ), null, "ui-state-focus" );
+				},
+				focusout: function( event ) {
+					this._removeClass( $( event.currentTarget ), null, "ui-state-focus" );
+				}
+			} );
+		},
+
+		_trigger: function( type, event, data ) {
+			var prop, orig;
+			var callback = this.options[ type ];
+
+			data = data || {};
+			event = $.Event( event );
+			event.type = ( type === this.widgetEventPrefix ?
+				type :
+				this.widgetEventPrefix + type ).toLowerCase();
+
+			// The original event may come from any element
+			// so we need to reset the target on the new event
+			event.target = this.element[ 0 ];
+
+			// Copy original event properties over to the new event
+			orig = event.originalEvent;
+			if ( orig ) {
+				for ( prop in orig ) {
+					if ( !( prop in event ) ) {
+						event[ prop ] = orig[ prop ];
+					}
+				}
+			}
+
+			this.element.trigger( event, data );
+			return !( $.isFunction( callback ) &&
+				callback.apply( this.element[ 0 ], [ event ].concat( data ) ) === false ||
+				event.isDefaultPrevented() );
+		}
+	};
+
+	$.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
+		$.Widget.prototype[ "_" + method ] = function( element, options, callback ) {
+			if ( typeof options === "string" ) {
+				options = { effect: options };
+			}
+
+			var hasOptions;
+			var effectName = !options ?
+				method :
+				options === true || typeof options === "number" ?
+					defaultEffect :
+					options.effect || defaultEffect;
+
+			options = options || {};
+			if ( typeof options === "number" ) {
+				options = { duration: options };
+			}
+
+			hasOptions = !$.isEmptyObject( options );
+			options.complete = callback;
+
+			if ( options.delay ) {
+				element.delay( options.delay );
+			}
+
+			if ( hasOptions && $.effects && $.effects.effect[ effectName ] ) {
+				element[ method ]( options );
+			} else if ( effectName !== method && element[ effectName ] ) {
+				element[ effectName ]( options.duration, options.easing, callback );
+			} else {
+				element.queue( function( next ) {
+					$( this )[ method ]();
+					if ( callback ) {
+						callback.call( element[ 0 ] );
+					}
+					next();
+				} );
+			}
+		};
+	} );
+
+	return $.widget;
+
+	} ) );
+
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
+		if ( true ) {
+
+			// AMD. Register as an anonymous module.
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(189) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+
+			// Browser globals
+			factory( jQuery );
+		}
+	} ( function( $ ) {
+
+	$.ui = $.ui || {};
+
+	return $.ui.version = "1.12.1";
+
+	} ) );
+
+
+/***/ },
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
