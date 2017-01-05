@@ -23956,7 +23956,7 @@
 	        source: "api/medicine",
 	        minLength: 2,
 	        select: function select(event, ui) {
-	          log("Selected: " + ui.item.value + " aka " + ui.item.id);
+	          console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
 	        }
 	      });
 	    }
