@@ -245,8 +245,8 @@ class ApiController extends Controller
         $result = $medicine->toArray();
                 
         
-        return response()->json([
+        return response()->json(
                     $result 
-        ]);
+        );
     }
 }
