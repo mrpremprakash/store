@@ -2,6 +2,7 @@ import React from 'react';
 import toastr from 'toastr';
 import validate from 'validate.js';
 import validationRules from '../validation/rules.js';
+import 'jquery-ui';
 export default class InvoiceAdd extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +34,7 @@ export default class InvoiceAdd extends React.Component {
                                 <div className="form-group">
                                     <label for="inputEmail3" className="col-sm-2 control-label no-padding-right">Name:</label>
                                     <div className="col-sm-10">
-                                        <input type="text" className="form-control" placeholder="Medicine Name" name="medicine_name" ref={(medicine_name) => this.medicine_name = medicine_name}/>
+                                        <input type="text" className="form-control" placeholder="Medicine Name" name="medicine_name" id="tags" ref={(medicine_name) => this.medicine_name = medicine_name}/>
                                         <span className="widget-caption themesecondary error-msg"></span>
                                     </div>
                                 </div>
@@ -97,5 +98,14 @@ export default class InvoiceAdd extends React.Component {
     for(var input_name in errors) {
       $(this[input_name]).parent().find('.error-msg').text(errors[input_name][0]);
     }
+  };
+  componentDidMount() {
+    $( "#tags" ).autocomplete({
+      source: "api/medicine?keyword=medicine",
+      minLength: 2,
+      select: function( event, ui ) {
+        log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+      }
+    });
   }
 }
