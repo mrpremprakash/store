@@ -236,7 +236,7 @@ class ApiController extends Controller
         $url_prefix=url('/assets/img/medicines');
         $keyword = Input::get('keyword');
         $medicine = DB::table('medicine')
-                ->select('medicine.id','medicine.name'
+                ->select('medicine.id AS value','medicine.name AS label'
                                 ,DB::raw("(CONCAT('".$url_prefix."','/',medicine.man_cmp_logo)) as `img`")
                                 )
                 ->where('name', 'like', "%$keyword%")
@@ -245,9 +245,7 @@ class ApiController extends Controller
         $result = $medicine->toArray();
                 
         return response()->json([
-                    'status' => 'sucess',
-                    'count' => $medicine_count,
-                    'result' => $result
+                    $medicine_count
         ]);
     }
 }
