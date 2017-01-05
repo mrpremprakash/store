@@ -23953,7 +23953,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      $("#tags").autocomplete({
-	        source: "api/medicine?keyword=medicine",
+	        source: "api/medicine",
 	        minLength: 2,
 	        select: function select(event, ui) {
 	          log("Selected: " + ui.item.value + " aka " + ui.item.id);

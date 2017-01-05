@@ -101,7 +101,7 @@ export default class InvoiceAdd extends React.Component {
   };
   componentDidMount() {
     $( "#tags" ).autocomplete({
-      source: "api/medicine?keyword=medicine",
+      source: "api/medicine",
       minLength: 2,
       select: function( event, ui ) {
         log( "Selected: " + ui.item.value + " aka " + ui.item.id );
