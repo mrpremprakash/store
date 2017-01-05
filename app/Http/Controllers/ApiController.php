@@ -244,8 +244,9 @@ class ApiController extends Controller
         $medicine_count = $medicine->count();
         $result = $medicine->toArray();
                 
+        
         return response()->json([
-                    $result
+                    $result 
         ]);
     }
 }
