@@ -104,7 +104,7 @@ export default class InvoiceAdd extends React.Component {
       source: "api/medicine",
       minLength: 2,
       select: function( event, ui ) {
-        log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
       }
     });
   }

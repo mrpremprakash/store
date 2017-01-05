@@ -32,6 +32,7 @@
     <!--Beyond styles-->
     <link id="beyond-link" href="assets/css/beyond.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/demo.min.css" rel="stylesheet" />
+    <link href="assets/css/jquery-ui.css" rel="stylesheet" />
     <link href="assets/css/typicons.min.css" rel="stylesheet" />
     <link href="assets/css/animate.min.css" rel="stylesheet" />
     <link href="assets/css/dataTables.bootstrap.css" rel="stylesheet" />
