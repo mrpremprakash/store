@@ -236,7 +236,7 @@ class ApiController extends Controller
         $url_prefix=url('/assets/img/medicines');
         $keyword = Input::get('term');
         $medicine = DB::table('medicine')
-                ->select('medicine.id AS value','medicine.name AS label'
+                ->select('medicine.id AS id','medicine.name AS value','medicine.name AS label'
                                 ,DB::raw("(CONCAT('".$url_prefix."','/',medicine.man_cmp_logo)) as `img`")
                                 )
                 ->where('name', 'like', "%$keyword%")
