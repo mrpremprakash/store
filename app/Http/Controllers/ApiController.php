@@ -234,7 +234,7 @@ class ApiController extends Controller
     
     public function get_medicine_list(){
         $url_prefix=url('/assets/img/medicines');
-        $keyword = Input::get('keyword');
+        $keyword = Input::get('term');
         $medicine = DB::table('medicine')
                 ->select('medicine.id AS value','medicine.name AS label'
                                 ,DB::raw("(CONCAT('".$url_prefix."','/',medicine.man_cmp_logo)) as `img`")
@@ -245,7 +245,7 @@ class ApiController extends Controller
         $result = $medicine->toArray();
                 
         return response()->json([
-                    $medicine_count
+                    $result
         ]);
     }
 }
