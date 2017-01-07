@@ -21527,6 +21527,10 @@
 
 	var _print2 = _interopRequireDefault(_print);
 
+	var _expiry_alert = __webpack_require__(198);
+
+	var _expiry_alert2 = _interopRequireDefault(_expiry_alert);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21571,7 +21575,8 @@
 	            this.state.active_menu == 'Warehouse/Team Members' && _react2.default.createElement(_team_member2.default, { container: this }),
 	            this.state.active_menu == 'Profile' && _react2.default.createElement(_profile2.default, { container: this }),
 	            this.state.active_menu == 'Invoice/Add' && _react2.default.createElement(_add4.default, { container: this }),
-	            this.state.active_menu == 'Invoice/Print' && _react2.default.createElement(_print2.default, { container: this })
+	            this.state.active_menu == 'Invoice/Print' && _react2.default.createElement(_print2.default, { container: this }),
+	            this.state.active_menu == 'Settings/Expiry Alert' && _react2.default.createElement(_expiry_alert2.default, { container: this })
 	          )
 	        )
 	      );
@@ -22321,7 +22326,7 @@
 	    var _this = _possibleConstructorReturn(this, (Leftnav.__proto__ || Object.getPrototypeOf(Leftnav)).call(this, props));
 
 	    _this.state = {
-	      menus: [{ label: 'Home', icon_class: 'fa fa-home', submenu: [] }, { label: 'Warehouse', icon_class: 'fa fa-table', submenu: [{ label: 'Team Members' }, { label: 'Letterhead' }, { label: 'Chat' }, { label: 'Todo List' }, { label: 'Offer List' }] }, { label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [{ label: 'List', ajax_url: 'shop_medicine' }, { label: 'Add' }] }, { label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [{ label: 'List' }, { label: 'Add' }, { label: 'Print' }] }, { label: 'Profile', icon_class: 'fa fa-picture-o', submenu: [] }]
+	      menus: [{ label: 'Home', icon_class: 'fa fa-home', submenu: [] }, { label: 'Warehouse', icon_class: 'fa fa-table', submenu: [{ label: 'Team Members' }, { label: 'Letterhead' }, { label: 'Chat' }, { label: 'Todo List' }, { label: 'Offer List' }] }, { label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [{ label: 'List', ajax_url: 'shop_medicine' }, { label: 'Add' }] }, { label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [{ label: 'List' }, { label: 'Add' }, { label: 'Print' }] }, { label: 'Settings', icon_class: 'fa fa-picture-o', submenu: [{ label: 'Expiry Alert' }] }, { label: 'Profile', icon_class: 'fa fa-picture-o', submenu: [] }]
 	    };
 	    return _this;
 	  }
@@ -37298,6 +37303,171 @@
 	}(_react2.default.Component);
 
 	exports.default = InvoicePrint;
+
+/***/ },
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MedicineList = function (_React$Component) {
+	    _inherits(MedicineList, _React$Component);
+
+	    function MedicineList(props) {
+	        _classCallCheck(this, MedicineList);
+
+	        return _possibleConstructorReturn(this, (MedicineList.__proto__ || Object.getPrototypeOf(MedicineList)).call(this, props));
+	    }
+
+	    _createClass(MedicineList, [{
+	        key: "render",
+	        value: function render() {
+	            var self = this;
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "page-content" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "page-breadcrumbs" },
+	                    _react2.default.createElement(
+	                        "ul",
+	                        { className: "breadcrumb" },
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement("i", { className: "fa fa-folder-open" }),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "javascript:void(0);" },
+	                                "Home"
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "active" },
+	                            "Settings / Expiry Alert"
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "page-body" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-lg-12 col-sm-12 col-xs-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "widget" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "widget-header bordered-bottom bordered-palegreen" },
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "widget-caption" },
+	                                        "Create New Expiry Alert"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "widget-body" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "form",
+	                                            { className: "form-horizontal form-bordered add-invoice-form", role: "form", onSubmit: this.validate.bind(this) },
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "form-group" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-4 control-label" },
+	                                                    " Show record as RED if medicine has"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-4" },
+	                                                    _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Medicine Name", name: "exp_red", value: "10" })
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-4", style: { 'padding-top': '7px' } },
+	                                                    "days to expiry."
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "form-group" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-4 control-label" },
+	                                                    " Show record as ORANGE if medicine has"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-4" },
+	                                                    _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Medicine Name", name: "exp_orange", value: "20" })
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-4", style: { 'paddingTop': '7px' } },
+	                                                    "days to expiry."
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "form-group" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "col-sm-offset-7" },
+	                                                    _react2.default.createElement(
+	                                                        "button",
+	                                                        { type: "submit", className: "btn btn-palegreen" },
+	                                                        "Update"
+	                                                    )
+	                                                )
+	                                            )
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }, {
+	        key: "validate",
+	        value: function validate(event) {
+	            event.preventDefault();
+	        }
+	    }]);
+
+	    return MedicineList;
+	}(_react2.default.Component);
+
+	exports.default = MedicineList;
 
 /***/ }
 /******/ ]);

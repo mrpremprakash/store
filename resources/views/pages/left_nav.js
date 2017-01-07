@@ -22,6 +22,10 @@ export default class Leftnav extends React.Component {
           {label: 'Add'},
           {label: 'Print'},
         ]},
+        {label: 'Settings', icon_class: 'fa fa-picture-o', submenu: [
+          {label: 'Expiry Alert'},
+
+        ]},
         {label: 'Profile', icon_class: 'fa fa-picture-o', submenu: []}
       ]
     };
