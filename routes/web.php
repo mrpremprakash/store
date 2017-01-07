@@ -25,10 +25,11 @@ Route::resource('store_utility', 'UtilityController');
 Route::group(['middleware' => 'auth'], function()
 {
     Route::resource('shop_medicine', 'Shop_medicineController');
+    Route::resource('setting', 'SettingController');
 });
 
 Route::resource('invoice', 'InvoiceController');
-Route::resource('setting', 'SettingController');
+
 
 Route::get('/invoice', function () {
     return view('pages.invoice');

@@ -22,7 +22,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $user_id = 1;//Auth::user()->id;
+        $user_id = Auth::user()->id;
         if($user_id){
                 $user = User::select(
                                 'id',
