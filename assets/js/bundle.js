@@ -21507,19 +21507,23 @@
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _team_member = __webpack_require__(185);
-
-	var _team_member2 = _interopRequireDefault(_team_member);
-
-	var _profile = __webpack_require__(186);
-
-	var _profile2 = _interopRequireDefault(_profile);
-
-	var _add = __webpack_require__(187);
+	var _add = __webpack_require__(185);
 
 	var _add2 = _interopRequireDefault(_add);
 
-	var _print = __webpack_require__(196);
+	var _team_member = __webpack_require__(192);
+
+	var _team_member2 = _interopRequireDefault(_team_member);
+
+	var _profile = __webpack_require__(193);
+
+	var _profile2 = _interopRequireDefault(_profile);
+
+	var _add3 = __webpack_require__(194);
+
+	var _add4 = _interopRequireDefault(_add3);
+
+	var _print = __webpack_require__(197);
 
 	var _print2 = _interopRequireDefault(_print);
 
@@ -21563,9 +21567,10 @@
 	            _react2.default.createElement(_left_nav2.default, { container: this }),
 	            this.state.active_menu == 'Home' && _react2.default.createElement(_home2.default, { container: this }),
 	            this.state.active_menu == 'Medicine/List' && _react2.default.createElement(_list2.default, { container: this }),
+	            this.state.active_menu == 'Medicine/Add' && _react2.default.createElement(_add2.default, { container: this }),
 	            this.state.active_menu == 'Warehouse/Team Members' && _react2.default.createElement(_team_member2.default, { container: this }),
 	            this.state.active_menu == 'Profile' && _react2.default.createElement(_profile2.default, { container: this }),
-	            this.state.active_menu == 'Invoice/Add' && _react2.default.createElement(_add2.default, { container: this }),
+	            this.state.active_menu == 'Invoice/Add' && _react2.default.createElement(_add4.default, { container: this }),
 	            this.state.active_menu == 'Invoice/Print' && _react2.default.createElement(_print2.default, { container: this })
 	          )
 	        )
@@ -23386,161 +23391,6 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TeamMember = function (_React$Component) {
-	  _inherits(TeamMember, _React$Component);
-
-	  function TeamMember(props) {
-	    _classCallCheck(this, TeamMember);
-
-	    var _this = _possibleConstructorReturn(this, (TeamMember.__proto__ || Object.getPrototypeOf(TeamMember)).call(this, props));
-
-	    _this.state = {
-	      items: [{ name: 'Adam Johnson', avatar: 'adam-jansen.jpg', designation: 'Programmer', exp: '5 yesrs' }, { name: 'Divyia Phillips', avatar: 'divyia.jpg', designation: 'Programmer', exp: '5 yesrs' }, { name: 'Nicolai Larson', avatar: 'Matt-Cheuvront.jpg', designation: 'Programmer', exp: '5 yesrs' }, { name: 'Bill Jackson', avatar: 'Sergey-Azovskiy.jpg', designation: 'Programmer', exp: '5 yesrs' }, { name: 'Eric Clapton', avatar: 'John-Smith.jpg', designation: 'Programmer', exp: '5 yesrs' }]
-	    };
-	    return _this;
-	  }
-
-	  _createClass(TeamMember, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'page-content' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'page-breadcrumbs' },
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'breadcrumb' },
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement('i', { className: 'fa fa-home' }),
-	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                'Home'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'active' },
-	              'Warehouse / Team Members'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'page-body' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-lg-12' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'widget' },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'widget-header bordered-bottom bordered-themesecondary' },
-	                  _react2.default.createElement('i', { className: 'widget-icon fa fa-tags themesecondary' }),
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'widget-caption themesecondary' },
-	                    'Team Members'
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'widget-body  no-padding' },
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'tickets-container' },
-	                    _react2.default.createElement(
-	                      'ul',
-	                      { className: 'tickets-list' },
-	                      this.state.items.map(function (item, index) {
-	                        var avatar = 'assets/img/avatars/' + item.avatar;
-	                        return _react2.default.createElement(
-	                          'li',
-	                          { className: 'ticket-item', key: index },
-	                          _react2.default.createElement(
-	                            'div',
-	                            { className: 'row' },
-	                            _react2.default.createElement(
-	                              'div',
-	                              { className: 'ticket-user col-lg-6 col-sm-12' },
-	                              _react2.default.createElement('img', { src: avatar, className: 'user-avatar' }),
-	                              _react2.default.createElement(
-	                                'span',
-	                                { className: 'user-name' },
-	                                item.name
-	                              )
-	                            ),
-	                            _react2.default.createElement(
-	                              'div',
-	                              { className: 'ticket-time  col-lg-4 col-sm-6 col-xs-12' },
-	                              _react2.default.createElement('div', { className: 'divider hidden-md hidden-sm hidden-xs' }),
-	                              _react2.default.createElement(
-	                                'span',
-	                                { className: 'time' },
-	                                item.designation
-	                              )
-	                            ),
-	                            _react2.default.createElement(
-	                              'div',
-	                              { className: 'ticket-type  col-lg-2 col-sm-6 col-xs-12' },
-	                              _react2.default.createElement('span', { className: 'divider hidden-xs' }),
-	                              _react2.default.createElement(
-	                                'span',
-	                                { className: 'type' },
-	                                item.exp
-	                              )
-	                            )
-	                          )
-	                        );
-	                      })
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return TeamMember;
-	}(_react2.default.Component);
-
-	exports.default = TeamMember;
-
-/***/ },
-/* 186 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
@@ -23550,6 +23400,18 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _toastr = __webpack_require__(186);
+
+	var _toastr2 = _interopRequireDefault(_toastr);
+
+	var _validate2 = __webpack_require__(189);
+
+	var _validate3 = _interopRequireDefault(_validate2);
+
+	var _rules = __webpack_require__(191);
+
+	var _rules2 = _interopRequireDefault(_rules);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23558,155 +23420,157 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Profile = function (_React$Component) {
-	    _inherits(Profile, _React$Component);
+	var MedicineAdd = function (_React$Component) {
+	    _inherits(MedicineAdd, _React$Component);
 
-	    function Profile() {
-	        _classCallCheck(this, Profile);
+	    function MedicineAdd(props) {
+	        _classCallCheck(this, MedicineAdd);
 
-	        return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (MedicineAdd.__proto__ || Object.getPrototypeOf(MedicineAdd)).call(this, props));
+
+	        _this.state = {};
+	        return _this;
 	    }
 
-	    _createClass(Profile, [{
-	        key: "render",
+	    _createClass(MedicineAdd, [{
+	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
+	            var self = this;
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "page-content" },
+	                'div',
+	                { className: 'page-content' },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "page-breadcrumbs" },
+	                    'div',
+	                    { className: 'page-breadcrumbs' },
 	                    _react2.default.createElement(
-	                        "ul",
-	                        { className: "breadcrumb" },
+	                        'ul',
+	                        { className: 'breadcrumb' },
 	                        _react2.default.createElement(
-	                            "li",
+	                            'li',
 	                            null,
-	                            _react2.default.createElement("i", { className: "fa fa-home" }),
+	                            _react2.default.createElement('i', { className: 'fa fa-home' }),
 	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "javascript:void(0);" },
-	                                "Home"
+	                                'a',
+	                                { href: 'javascript:void(0);' },
+	                                'Home'
 	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: 'active' },
+	                            'Medicine / Add'
 	                        )
 	                    )
 	                ),
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "page-body" },
+	                    'div',
+	                    { className: 'page-body' },
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "row" },
+	                        'div',
+	                        { className: 'row' },
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "col-md-12" },
+	                            'div',
+	                            { className: 'col-lg-12 col-sm-12 col-xs-12' },
 	                            _react2.default.createElement(
-	                                "div",
-	                                { className: "profile-container" },
+	                                'div',
+	                                { className: 'widget' },
 	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "profile-header row" },
+	                                    'div',
+	                                    { className: 'widget-header bordered-bottom bordered-palegreen' },
 	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "col-lg-2 col-md-4 col-sm-12 text-center" },
-	                                        _react2.default.createElement("img", { src: "assets/img/avatars/divyia.jpg", alt: "", className: "header-avatar" })
-	                                    ),
+	                                        'span',
+	                                        { className: 'widget-caption' },
+	                                        'Add New Medicine'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'widget-body' },
 	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "col-lg-5 col-md-8 col-sm-12 profile-info" },
+	                                        'div',
+	                                        null,
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "header-fullname" },
-	                                            "Kim Ryder"
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { href: "#", className: "btn btn-palegreen btn-sm  btn-follow" },
-	                                            _react2.default.createElement("i", { className: "fa fa-check" }),
-	                                            "Following"
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "header-information" },
-	                                            "Kim is a software developer in Microsoft. She works in ASP.NET MVC Team and collaborates with other teams."
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "col-lg-5 col-md-12 col-sm-12 col-xs-12 profile-stats" },
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "row" },
+	                                            'form',
+	                                            { className: 'form-horizontal form-bordered add-new-form', role: 'form', onSubmit: this.validate.bind(this) },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-12 stats-col" },
+	                                                'div',
+	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "stats-value pink" },
-	                                                    "284"
+	                                                    'label',
+	                                                    { 'for': 'inputEmail3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    'Name:'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "stats-title" },
-	                                                    "FOLLOWING"
+	                                                    'div',
+	                                                    { className: 'col-sm-10' },
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Medicine Name', name: 'medicine_name', id: 'tags', ref: function ref(medicine_name) {
+	                                                            return _this2.medicine_name = medicine_name;
+	                                                        } }),
+	                                                    _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-12 stats-col" },
+	                                                'div',
+	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "stats-value pink" },
-	                                                    "803"
+	                                                    'label',
+	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    'Quantity:'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "stats-title" },
-	                                                    "FOLLOWERS"
+	                                                    'div',
+	                                                    { className: 'col-sm-10' },
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Quantity', ref: function ref(quantity) {
+	                                                            return _this2.quantity = quantity;
+	                                                        } }),
+	                                                    _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-12 stats-col" },
+	                                                'div',
+	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "stats-value pink" },
-	                                                    "1207"
+	                                                    'label',
+	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    'Price:'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "stats-title" },
-	                                                    "POSTS"
-	                                                )
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "row" },
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 inlinestats-col" },
-	                                                _react2.default.createElement("i", { className: "glyphicon glyphicon-map-marker" }),
-	                                                " Boston"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 inlinestats-col" },
-	                                                "Rate: ",
-	                                                _react2.default.createElement(
-	                                                    "strong",
-	                                                    null,
-	                                                    "$250"
+	                                                    'div',
+	                                                    { className: 'col-sm-10' },
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Price', ref: function ref(price) {
+	                                                            return _this2.price = price;
+	                                                        } })
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 inlinestats-col" },
-	                                                "Age: ",
+	                                                'div',
+	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
-	                                                    "strong",
-	                                                    null,
-	                                                    "24"
+	                                                    'label',
+	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    'Discount:'
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    'div',
+	                                                    { className: 'col-sm-10' },
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Discount', ref: function ref(discount) {
+	                                                            return _this2.discount = discount;
+	                                                        } })
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'form-group' },
+	                                                _react2.default.createElement(
+	                                                    'div',
+	                                                    { className: 'col-sm-offset-2 col-sm-10' },
+	                                                    _react2.default.createElement(
+	                                                        'button',
+	                                                        { type: 'submit', className: 'btn btn-palegreen' },
+	                                                        'Add To Cart'
+	                                                    )
 	                                                )
 	                                            )
 	                                        )
@@ -23718,257 +23582,48 @@
 	                )
 	            );
 	        }
+	    }, {
+	        key: 'validate',
+	        value: function validate(event) {
+	            event.preventDefault();
+	            var errors = (0, _validate3.default)({ medicine_name: this.medicine_name.value, quantity: this.quantity.value }, _rules2.default);
+
+	            var self = this;
+	            this.showErrorMessage(errors);
+	            if (typeof errors == 'undefined') {
+	                _toastr2.default["success"]("'" + this.medicine_name.value + "' added successfully!");
+	                $('form.add-new-form')[0].reset();
+	            }
+	        }
+	    }, {
+	        key: 'showErrorMessage',
+	        value: function showErrorMessage(errors) {
+	            var form = $('form.add-new-form');
+	            form.find('.error-msg').text('');
+	            for (var input_name in errors) {
+	                $(this[input_name]).parent().find('.error-msg').text(errors[input_name][0]);
+	            }
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            $("#tags").autocomplete({
+	                source: "api/medicine",
+	                minLength: 2,
+	                select: function select(event, ui) {
+	                    console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
+	                }
+	            });
+	        }
 	    }]);
 
-	    return Profile;
+	    return MedicineAdd;
 	}(_react2.default.Component);
 
-	exports.default = Profile;
+	exports.default = MedicineAdd;
 
 /***/ },
-/* 187 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _toastr = __webpack_require__(188);
-
-	var _toastr2 = _interopRequireDefault(_toastr);
-
-	var _validate2 = __webpack_require__(191);
-
-	var _validate3 = _interopRequireDefault(_validate2);
-
-	var _rules = __webpack_require__(193);
-
-	var _rules2 = _interopRequireDefault(_rules);
-
-	__webpack_require__(194);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var InvoiceAdd = function (_React$Component) {
-	  _inherits(InvoiceAdd, _React$Component);
-
-	  function InvoiceAdd(props) {
-	    _classCallCheck(this, InvoiceAdd);
-
-	    var _this = _possibleConstructorReturn(this, (InvoiceAdd.__proto__ || Object.getPrototypeOf(InvoiceAdd)).call(this, props));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(InvoiceAdd, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-
-	      var self = this;
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'page-content' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'page-breadcrumbs' },
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'breadcrumb' },
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement('i', { className: 'fa fa-folder-open' }),
-	              _react2.default.createElement(
-	                'a',
-	                { href: 'javascript:void(0);' },
-	                'Invoice'
-	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'page-body' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-lg-12 col-sm-12 col-xs-12' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'widget' },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'widget-header bordered-bottom bordered-palegreen' },
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'widget-caption' },
-	                    'Create New Invoice'
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'widget-body' },
-	                  _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                      'form',
-	                      { className: 'form-horizontal form-bordered add-invoice-form', role: 'form', onSubmit: this.validate.bind(this) },
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { 'for': 'inputEmail3', className: 'col-sm-2 control-label no-padding-right' },
-	                          'Name:'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-sm-10' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Medicine Name', name: 'medicine_name', id: 'tags', ref: function ref(medicine_name) {
-	                              return _this2.medicine_name = medicine_name;
-	                            } }),
-	                          _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
-	                          'Quantity:'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-sm-10' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Quantity', ref: function ref(quantity) {
-	                              return _this2.quantity = quantity;
-	                            } }),
-	                          _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
-	                          'Price:'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-sm-10' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Price', ref: function ref(price) {
-	                              return _this2.price = price;
-	                            } })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
-	                          'Discount:'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-sm-10' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Discount', ref: function ref(discount) {
-	                              return _this2.discount = discount;
-	                            } })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-sm-offset-2 col-sm-10' },
-	                          _react2.default.createElement(
-	                            'button',
-	                            { type: 'submit', className: 'btn btn-palegreen' },
-	                            'Add To Cart'
-	                          )
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }, {
-	    key: 'validate',
-	    value: function validate(event) {
-	      event.preventDefault();
-	      var errors = (0, _validate3.default)({ medicine_name: this.medicine_name.value, quantity: this.quantity.value }, _rules2.default);
-	      console.log(errors);
-	      var self = this;
-	      this.showErrorMessage(errors);
-	      if (typeof errors == 'undefined') {
-	        var invoice_notification_items = this.props.container.state.invoice_notification_items;
-	        invoice_notification_items.push({
-	          label: this.medicine_name.value,
-	          desc: 'Quantity: ' + this.quantity.value,
-	          price: this.price.value
-	        });
-	        this.props.container.setState({ invoice_notification_items: invoice_notification_items });
-	        _toastr2.default["success"]("'" + this.medicine_name.value + "' added successfully!");
-	        $('form.add-invoice-form')[0].reset();
-	      }
-	    }
-	  }, {
-	    key: 'showErrorMessage',
-	    value: function showErrorMessage(errors) {
-	      var form = $('form.add-invoice-form');
-	      form.find('.error-msg').text('');
-	      for (var input_name in errors) {
-	        $(this[input_name]).parent().find('.error-msg').text(errors[input_name][0]);
-	      }
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      $("#tags").autocomplete({
-	        source: "api/medicine",
-	        minLength: 2,
-	        select: function select(event, ui) {
-	          console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
-	        }
-	      });
-	    }
-	  }]);
-
-	  return InvoiceAdd;
-	}(_react2.default.Component);
-
-	exports.default = InvoiceAdd;
-
-/***/ },
-/* 188 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -23985,7 +23640,7 @@
 	 */
 	/* global define */
 	; (function (define) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(189)], __WEBPACK_AMD_DEFINE_RESULT__ = function ($) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(187)], __WEBPACK_AMD_DEFINE_RESULT__ = function ($) {
 	        return (function () {
 	            var $container;
 	            var listener;
@@ -24399,11 +24054,11 @@
 
 	        })();
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	}(__webpack_require__(190)));
+	}(__webpack_require__(188)));
 
 
 /***/ },
-/* 189 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -34629,14 +34284,14 @@
 
 
 /***/ },
-/* 190 */
+/* 188 */
 /***/ function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
 /***/ },
-/* 191 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/*!
@@ -35808,16 +35463,16 @@
 	    }
 	  };
 
-	  validate.exposeModule(validate, this, exports, module, __webpack_require__(190));
+	  validate.exposeModule(validate, this, exports, module, __webpack_require__(188));
 	}).call(this,
 	         true ? /* istanbul ignore next */ exports : null,
 	         true ? /* istanbul ignore next */ module : null,
-	        __webpack_require__(190));
+	        __webpack_require__(188));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(192)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(190)(module)))
 
 /***/ },
-/* 192 */
+/* 190 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -35833,7 +35488,7 @@
 
 
 /***/ },
-/* 193 */
+/* 191 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -35856,7 +35511,595 @@
 	exports.default = constraints;
 
 /***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TeamMember = function (_React$Component) {
+	  _inherits(TeamMember, _React$Component);
+
+	  function TeamMember(props) {
+	    _classCallCheck(this, TeamMember);
+
+	    var _this = _possibleConstructorReturn(this, (TeamMember.__proto__ || Object.getPrototypeOf(TeamMember)).call(this, props));
+
+	    _this.state = {
+	      items: [{ name: 'Adam Johnson', avatar: 'adam-jansen.jpg', designation: 'Programmer', exp: '5 yesrs' }, { name: 'Divyia Phillips', avatar: 'divyia.jpg', designation: 'Programmer', exp: '5 yesrs' }, { name: 'Nicolai Larson', avatar: 'Matt-Cheuvront.jpg', designation: 'Programmer', exp: '5 yesrs' }, { name: 'Bill Jackson', avatar: 'Sergey-Azovskiy.jpg', designation: 'Programmer', exp: '5 yesrs' }, { name: 'Eric Clapton', avatar: 'John-Smith.jpg', designation: 'Programmer', exp: '5 yesrs' }]
+	    };
+	    return _this;
+	  }
+
+	  _createClass(TeamMember, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'page-content' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'page-breadcrumbs' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'breadcrumb' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement('i', { className: 'fa fa-home' }),
+	              _react2.default.createElement(
+	                'a',
+	                { href: '#' },
+	                'Home'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              { className: 'active' },
+	              'Warehouse / Team Members'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'page-body' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-lg-12' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'widget' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'widget-header bordered-bottom bordered-themesecondary' },
+	                  _react2.default.createElement('i', { className: 'widget-icon fa fa-tags themesecondary' }),
+	                  _react2.default.createElement(
+	                    'span',
+	                    { className: 'widget-caption themesecondary' },
+	                    'Team Members'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'widget-body  no-padding' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'tickets-container' },
+	                    _react2.default.createElement(
+	                      'ul',
+	                      { className: 'tickets-list' },
+	                      this.state.items.map(function (item, index) {
+	                        var avatar = 'assets/img/avatars/' + item.avatar;
+	                        return _react2.default.createElement(
+	                          'li',
+	                          { className: 'ticket-item', key: index },
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'row' },
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'ticket-user col-lg-6 col-sm-12' },
+	                              _react2.default.createElement('img', { src: avatar, className: 'user-avatar' }),
+	                              _react2.default.createElement(
+	                                'span',
+	                                { className: 'user-name' },
+	                                item.name
+	                              )
+	                            ),
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'ticket-time  col-lg-4 col-sm-6 col-xs-12' },
+	                              _react2.default.createElement('div', { className: 'divider hidden-md hidden-sm hidden-xs' }),
+	                              _react2.default.createElement(
+	                                'span',
+	                                { className: 'time' },
+	                                item.designation
+	                              )
+	                            ),
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'ticket-type  col-lg-2 col-sm-6 col-xs-12' },
+	                              _react2.default.createElement('span', { className: 'divider hidden-xs' }),
+	                              _react2.default.createElement(
+	                                'span',
+	                                { className: 'type' },
+	                                item.exp
+	                              )
+	                            )
+	                          )
+	                        );
+	                      })
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return TeamMember;
+	}(_react2.default.Component);
+
+	exports.default = TeamMember;
+
+/***/ },
+/* 193 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Profile = function (_React$Component) {
+	    _inherits(Profile, _React$Component);
+
+	    function Profile() {
+	        _classCallCheck(this, Profile);
+
+	        return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+	    }
+
+	    _createClass(Profile, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "page-content" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "page-breadcrumbs" },
+	                    _react2.default.createElement(
+	                        "ul",
+	                        { className: "breadcrumb" },
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement("i", { className: "fa fa-home" }),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "javascript:void(0);" },
+	                                "Home"
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "page-body" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-md-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "profile-container" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "profile-header row" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "col-lg-2 col-md-4 col-sm-12 text-center" },
+	                                        _react2.default.createElement("img", { src: "assets/img/avatars/divyia.jpg", alt: "", className: "header-avatar" })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "col-lg-5 col-md-8 col-sm-12 profile-info" },
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "header-fullname" },
+	                                            "Kim Ryder"
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            { href: "#", className: "btn btn-palegreen btn-sm  btn-follow" },
+	                                            _react2.default.createElement("i", { className: "fa fa-check" }),
+	                                            "Following"
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "header-information" },
+	                                            "Kim is a software developer in Microsoft. She works in ASP.NET MVC Team and collaborates with other teams."
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "col-lg-5 col-md-12 col-sm-12 col-xs-12 profile-stats" },
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "row" },
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-12 stats-col" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "stats-value pink" },
+	                                                    "284"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "stats-title" },
+	                                                    "FOLLOWING"
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-12 stats-col" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "stats-value pink" },
+	                                                    "803"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "stats-title" },
+	                                                    "FOLLOWERS"
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-12 stats-col" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "stats-value pink" },
+	                                                    "1207"
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "stats-title" },
+	                                                    "POSTS"
+	                                                )
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "row" },
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 inlinestats-col" },
+	                                                _react2.default.createElement("i", { className: "glyphicon glyphicon-map-marker" }),
+	                                                " Boston"
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 inlinestats-col" },
+	                                                "Rate: ",
+	                                                _react2.default.createElement(
+	                                                    "strong",
+	                                                    null,
+	                                                    "$250"
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "div",
+	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 inlinestats-col" },
+	                                                "Age: ",
+	                                                _react2.default.createElement(
+	                                                    "strong",
+	                                                    null,
+	                                                    "24"
+	                                                )
+	                                            )
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Profile;
+	}(_react2.default.Component);
+
+	exports.default = Profile;
+
+/***/ },
 /* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _toastr = __webpack_require__(186);
+
+	var _toastr2 = _interopRequireDefault(_toastr);
+
+	var _validate2 = __webpack_require__(189);
+
+	var _validate3 = _interopRequireDefault(_validate2);
+
+	var _rules = __webpack_require__(191);
+
+	var _rules2 = _interopRequireDefault(_rules);
+
+	__webpack_require__(195);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var InvoiceAdd = function (_React$Component) {
+	  _inherits(InvoiceAdd, _React$Component);
+
+	  function InvoiceAdd(props) {
+	    _classCallCheck(this, InvoiceAdd);
+
+	    var _this = _possibleConstructorReturn(this, (InvoiceAdd.__proto__ || Object.getPrototypeOf(InvoiceAdd)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(InvoiceAdd, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      var self = this;
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'page-content' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'page-breadcrumbs' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'breadcrumb' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement('i', { className: 'fa fa-folder-open' }),
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'javascript:void(0);' },
+	                'Invoice'
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'page-body' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-lg-12 col-sm-12 col-xs-12' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'widget' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'widget-header bordered-bottom bordered-palegreen' },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { className: 'widget-caption' },
+	                    'Create New Invoice'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'widget-body' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                      'form',
+	                      { className: 'form-horizontal form-bordered add-invoice-form', role: 'form', onSubmit: this.validate.bind(this) },
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { 'for': 'inputEmail3', className: 'col-sm-2 control-label no-padding-right' },
+	                          'Name:'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-10' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Medicine Name', name: 'medicine_name', id: 'tags', ref: function ref(medicine_name) {
+	                              return _this2.medicine_name = medicine_name;
+	                            } }),
+	                          _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                          'Quantity:'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-10' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Quantity', ref: function ref(quantity) {
+	                              return _this2.quantity = quantity;
+	                            } }),
+	                          _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                          'Price:'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-10' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Price', ref: function ref(price) {
+	                              return _this2.price = price;
+	                            } })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                          'Discount:'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-10' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Discount', ref: function ref(discount) {
+	                              return _this2.discount = discount;
+	                            } })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-sm-offset-2 col-sm-10' },
+	                          _react2.default.createElement(
+	                            'button',
+	                            { type: 'submit', className: 'btn btn-palegreen' },
+	                            'Add To Cart'
+	                          )
+	                        )
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }, {
+	    key: 'validate',
+	    value: function validate(event) {
+	      event.preventDefault();
+	      var errors = (0, _validate3.default)({ medicine_name: this.medicine_name.value, quantity: this.quantity.value }, _rules2.default);
+	      console.log(errors);
+	      var self = this;
+	      this.showErrorMessage(errors);
+	      if (typeof errors == 'undefined') {
+	        var invoice_notification_items = this.props.container.state.invoice_notification_items;
+	        invoice_notification_items.push({
+	          label: this.medicine_name.value,
+	          desc: 'Quantity: ' + this.quantity.value,
+	          price: this.price.value
+	        });
+	        this.props.container.setState({ invoice_notification_items: invoice_notification_items });
+	        _toastr2.default["success"]("'" + this.medicine_name.value + "' added successfully!");
+	        $('form.add-invoice-form')[0].reset();
+	      }
+	    }
+	  }, {
+	    key: 'showErrorMessage',
+	    value: function showErrorMessage(errors) {
+	      var form = $('form.add-invoice-form');
+	      form.find('.error-msg').text('');
+	      for (var input_name in errors) {
+	        $(this[input_name]).parent().find('.error-msg').text(errors[input_name][0]);
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      $("#tags").autocomplete({
+	        source: "api/medicine",
+	        minLength: 2,
+	        select: function select(event, ui) {
+	          console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
+	        }
+	      });
+	    }
+	  }]);
+
+	  return InvoiceAdd;
+	}(_react2.default.Component);
+
+	exports.default = InvoiceAdd;
+
+/***/ },
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -35878,7 +36121,7 @@
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(189), __webpack_require__(195) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(187), __webpack_require__(196) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36595,14 +36838,14 @@
 
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(189) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(187) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36618,7 +36861,7 @@
 
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
