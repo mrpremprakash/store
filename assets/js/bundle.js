@@ -21583,21 +21583,21 @@
 	      var state = { active_menu: menu_path.join('/') };
 	      this.setState(state);
 	      if (ajax_url) {
-	        this.getData();
+	        this.getData(ajax_url);
 	      }
 	    }
 	  }, {
 	    key: 'getData',
-	    value: function getData() {
+	    value: function getData(ajax_url) {
 	      var self = this;
-	      var root = 'https://jsonplaceholder.typicode.com';
+
 	      $.ajax({
-	        url: root + '/users',
+	        url: ajax_url,
 	        type: 'get',
 	        success: function success(response) {
 
 	          self.setState({
-	            items: response
+	            items: response.result
 	          });
 	        }
 	      });
@@ -22321,7 +22321,7 @@
 	    var _this = _possibleConstructorReturn(this, (Leftnav.__proto__ || Object.getPrototypeOf(Leftnav)).call(this, props));
 
 	    _this.state = {
-	      menus: [{ label: 'Home', icon_class: 'fa fa-home', submenu: [] }, { label: 'Warehouse', icon_class: 'fa fa-table', submenu: [{ label: 'Team Members' }, { label: 'Letterhead' }, { label: 'Chat' }, { label: 'Todo List' }, { label: 'Offer List' }] }, { label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [{ label: 'List', ajax_url: 'users' }, { label: 'Add' }] }, { label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [{ label: 'List' }, { label: 'Add' }, { label: 'Print' }] }, { label: 'Profile', icon_class: 'fa fa-picture-o', submenu: [] }]
+	      menus: [{ label: 'Home', icon_class: 'fa fa-home', submenu: [] }, { label: 'Warehouse', icon_class: 'fa fa-table', submenu: [{ label: 'Team Members' }, { label: 'Letterhead' }, { label: 'Chat' }, { label: 'Todo List' }, { label: 'Offer List' }] }, { label: 'Medicine', icon_class: 'fa fa-desktop', submenu: [{ label: 'List', ajax_url: 'shop_medicine' }, { label: 'Add' }] }, { label: 'Invoice', icon_class: 'fa fa-folder-open', submenu: [{ label: 'List' }, { label: 'Add' }, { label: 'Print' }] }, { label: 'Profile', icon_class: 'fa fa-picture-o', submenu: [] }]
 	    };
 	    return _this;
 	  }
@@ -23191,183 +23191,71 @@
 	            { className: "row" },
 	            _react2.default.createElement(
 	              "div",
-	              { className: "col-xs-12 col-md-12" },
+	              { className: "col-lg-12" },
 	              _react2.default.createElement(
 	                "div",
 	                { className: "widget" },
 	                _react2.default.createElement(
 	                  "div",
-	                  { className: "widget-header" },
+	                  { className: "widget-header bordered-bottom bordered-themesecondary" },
+	                  _react2.default.createElement("i", { className: "widget-icon fa fa-tags themesecondary" }),
 	                  _react2.default.createElement(
 	                    "span",
-	                    { className: "widget-caption" },
+	                    { className: "widget-caption themesecondary" },
 	                    "Medicine List"
-	                  ),
-	                  _react2.default.createElement(
-	                    "div",
-	                    { className: "widget-buttons" },
-	                    _react2.default.createElement(
-	                      "a",
-	                      { href: "#", "data-toggle": "maximize" },
-	                      _react2.default.createElement("i", { className: "fa fa-expand" })
-	                    ),
-	                    _react2.default.createElement(
-	                      "a",
-	                      { href: "#", "data-toggle": "collapse" },
-	                      _react2.default.createElement("i", { className: "fa fa-minus" })
-	                    ),
-	                    _react2.default.createElement(
-	                      "a",
-	                      { href: "#", "data-toggle": "dispose" },
-	                      _react2.default.createElement("i", { className: "fa fa-times" })
-	                    )
 	                  )
 	                ),
 	                _react2.default.createElement(
 	                  "div",
-	                  { className: "widget-body" },
+	                  { className: "widget-body  no-padding" },
 	                  _react2.default.createElement(
 	                    "div",
-	                    { id: "editabledatatable_wrapper", className: "dataTables_wrapper form-inline no-footer" },
+	                    { className: "tickets-container" },
 	                    _react2.default.createElement(
-	                      "table",
-	                      { className: "table table-striped table-hover table-bordered dataTable no-footer" },
-	                      _react2.default.createElement(
-	                        "thead",
-	                        null,
-	                        _react2.default.createElement(
-	                          "tr",
-	                          { role: "row" },
+	                      "ul",
+	                      { className: "tickets-list" },
+	                      this.props.container.state.items.map(function (item, index) {
+
+	                        return _react2.default.createElement(
+	                          "li",
+	                          { className: "ticket-item", key: index },
 	                          _react2.default.createElement(
-	                            "th",
-	                            { className: "sorting", style: { width: '172px' } },
-	                            "ID"
-	                          ),
-	                          _react2.default.createElement(
-	                            "th",
-	                            { className: "sorting_asc", style: { width: '162px' } },
-	                            "Username"
-	                          ),
-	                          _react2.default.createElement(
-	                            "th",
-	                            { className: "sorting", style: { width: '244px' } },
-	                            "Full Name"
-	                          ),
-	                          _react2.default.createElement(
-	                            "th",
-	                            { className: "sorting", style: { width: '172px' } },
-	                            "Email"
-	                          ),
-	                          _react2.default.createElement("th", { className: "sorting_disabled", style: { width: '285px' } })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        "tbody",
-	                        null,
-	                        this.props.container.state.items.map(function (item, index) {
-	                          return _react2.default.createElement(
-	                            "tr",
-	                            { role: "row", className: "odd", key: index },
+	                            "div",
+	                            { className: "row" },
 	                            _react2.default.createElement(
-	                              "td",
-	                              null,
-	                              item.id
-	                            ),
-	                            _react2.default.createElement(
-	                              "td",
-	                              { className: "sorting_1" },
-	                              item.username
-	                            ),
-	                            _react2.default.createElement(
-	                              "td",
-	                              null,
-	                              item.name
-	                            ),
-	                            _react2.default.createElement(
-	                              "td",
-	                              { className: "center " },
-	                              item.email
-	                            ),
-	                            _react2.default.createElement(
-	                              "td",
-	                              null,
+	                              "div",
+	                              { className: "ticket-user col-lg-6 col-sm-12" },
+	                              _react2.default.createElement("img", { src: item.img, className: "user-avatar" }),
 	                              _react2.default.createElement(
-	                                "a",
-	                                { href: "#", className: "btn btn-info btn-xs edit" },
-	                                _react2.default.createElement("i", { className: "fa fa-edit" }),
-	                                " Edit"
-	                              ),
-	                              _react2.default.createElement(
-	                                "a",
-	                                { href: "#", className: "btn btn-danger btn-xs delete" },
-	                                _react2.default.createElement("i", { className: "fa fa-trash-o" }),
-	                                " Delete"
-	                              )
-	                            )
-	                          );
-	                        })
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      "div",
-	                      { className: "row DTTTFooter" },
-	                      _react2.default.createElement(
-	                        "div",
-	                        { className: "col-sm-6" },
-	                        _react2.default.createElement(
-	                          "div",
-	                          { className: "dataTables_info", id: "editabledatatable_info", role: "status", "aria-live": "polite" },
-	                          "Showing 1 to 5 of 6 entries"
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        "div",
-	                        { className: "col-sm-6" },
-	                        _react2.default.createElement(
-	                          "div",
-	                          { className: "dataTables_paginate paging_bootstrap", id: "editabledatatable_paginate" },
-	                          _react2.default.createElement(
-	                            "ul",
-	                            { className: "pagination" },
-	                            _react2.default.createElement(
-	                              "li",
-	                              { className: "prev disabled" },
-	                              _react2.default.createElement(
-	                                "a",
-	                                { href: "#" },
-	                                "Prev"
+	                                "span",
+	                                { className: "user-name" },
+	                                item.name
 	                              )
 	                            ),
 	                            _react2.default.createElement(
-	                              "li",
-	                              { className: "active" },
+	                              "div",
+	                              { className: "ticket-time  col-lg-4 col-sm-6 col-xs-12" },
+	                              _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
 	                              _react2.default.createElement(
-	                                "a",
-	                                { href: "#" },
-	                                "1"
+	                                "span",
+	                                { className: "time" },
+	                                "10 \xA0",
+	                                _react2.default.createElement("i", { className: "fa fa-inr", "aria-hidden": "true" })
 	                              )
 	                            ),
 	                            _react2.default.createElement(
-	                              "li",
-	                              null,
+	                              "div",
+	                              { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                              _react2.default.createElement("span", { className: "divider hidden-xs" }),
 	                              _react2.default.createElement(
-	                                "a",
-	                                { href: "#" },
-	                                "2"
-	                              )
-	                            ),
-	                            _react2.default.createElement(
-	                              "li",
-	                              { className: "next" },
-	                              _react2.default.createElement(
-	                                "a",
-	                                { href: "#" },
-	                                "Next"
+	                                "span",
+	                                { className: "type" },
+	                                "100"
 	                              )
 	                            )
 	                          )
-	                        )
-	                      )
+	                        );
+	                      })
 	                    )
 	                  )
 	                )
@@ -23508,6 +23396,7 @@
 	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Medicine Name', name: 'medicine_name', id: 'tags', ref: function ref(medicine_name) {
 	                                                            return _this2.medicine_name = medicine_name;
 	                                                        } }),
+	                                                    _react2.default.createElement('input', { type: 'hidden', id: 'medicine_id' }),
 	                                                    _react2.default.createElement('span', { className: 'widget-caption themesecondary error-msg' })
 	                                                )
 	                                            ),
@@ -23591,9 +23480,22 @@
 	            var self = this;
 	            this.showErrorMessage(errors);
 	            if (typeof errors == 'undefined') {
-	                _toastr2.default["success"]("'" + this.medicine_name.value + "' added successfully!");
-	                $('form.add-new-form')[0].reset();
+
+	                var data = {
+	                    medicine_id: $("#medicine_id").val(),
+	                    quantity: this.quantity.value,
+	                    print: 10
+	                };
+	                $.when(self.add(data)).then(function (response) {
+	                    _toastr2.default["success"]("'" + self.medicine_name.value + "' added successfully!");
+	                    $('form.add-new-form')[0].reset();
+	                });
 	            }
+	        }
+	    }, {
+	        key: 'add',
+	        value: function add(data) {
+	            return $.post('shop_medicine', data);
 	        }
 	    }, {
 	        key: 'showErrorMessage',
@@ -23611,6 +23513,7 @@
 	                source: "api/medicine",
 	                minLength: 2,
 	                select: function select(event, ui) {
+	                    $("#medicine_id").val(ui.item.id);
 	                    console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
 	                }
 	            });

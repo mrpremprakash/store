@@ -42,20 +42,20 @@ export default class Container extends React.Component {
     var state = {active_menu: menu_path.join('/')};
     this.setState(state);
     if(ajax_url) {
-      this.getData();
+      this.getData(ajax_url);
     }
   };
 
-  getData() {
+  getData(ajax_url) {
     var self = this;
-    var root = 'https://jsonplaceholder.typicode.com';
+
     $.ajax({
-      url: root+'/users',
+      url: ajax_url,
       type: 'get',
       success: function(response) {
 
         self.setState({
-          items: response
+          items: response.result
         });
       }
     });

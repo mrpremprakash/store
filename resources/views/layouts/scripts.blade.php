@@ -3,7 +3,7 @@
     <!--Basic Scripts-->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/combobox.js"></script>
+    <!-- <script src="assets/js/combobox.js"></script> -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
 
