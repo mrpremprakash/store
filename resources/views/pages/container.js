@@ -8,6 +8,7 @@ import TeamMember from '../team_member.js';
 import Profile from './profile.js';
 import InvoiceAdd from '../invoice/add.js';
 import InvoicePrint from '../invoice/print.js';
+import ExpiryAlert from '../settings/expiry_alert.js';
 
 export default class Container extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ export default class Container extends React.Component {
                 {this.state.active_menu == 'Profile' && <Profile container={this}/>}
                 {this.state.active_menu == 'Invoice/Add' && <InvoiceAdd container={this}/>}
                 {this.state.active_menu == 'Invoice/Print' && <InvoicePrint container={this}/>}
+                {this.state.active_menu == 'Settings/Expiry Alert' && <ExpiryAlert container={this}/>}
             </div>
         </div>
       </div>
