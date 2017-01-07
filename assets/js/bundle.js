@@ -23444,13 +23444,13 @@
 	                                                _react2.default.createElement(
 	                                                    'label',
 	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
-	                                                    'Discount:'
+	                                                    'Expiry Date:'
 	                                                ),
 	                                                _react2.default.createElement(
 	                                                    'div',
 	                                                    { className: 'col-sm-10' },
-	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Discount', ref: function ref(discount) {
-	                                                            return _this2.discount = discount;
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'datepicker', placeholder: 'Discount', ref: function ref(exp_date) {
+	                                                            return _this2.exp_date = exp_date;
 	                                                        } })
 	                                                )
 	                                            ),
@@ -23522,6 +23522,7 @@
 	                    console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
 	                }
 	            });
+	            $("#datepicker").datepicker({ minDate: 0, maxDate: "+1M +10D" });
 	        }
 	    }]);
 
@@ -37403,7 +37404,13 @@
 	                                                _react2.default.createElement(
 	                                                    "div",
 	                                                    { className: "col-sm-4 control-label" },
-	                                                    " Show record as RED if medicine has"
+	                                                    "Show record as ",
+	                                                    _react2.default.createElement(
+	                                                        "span",
+	                                                        { className: "label label-red" },
+	                                                        "RED"
+	                                                    ),
+	                                                    " if medicine has"
 	                                                ),
 	                                                _react2.default.createElement(
 	                                                    "div",
@@ -37422,7 +37429,13 @@
 	                                                _react2.default.createElement(
 	                                                    "div",
 	                                                    { className: "col-sm-4 control-label" },
-	                                                    " Show record as ORANGE if medicine has"
+	                                                    "Show record as ",
+	                                                    _react2.default.createElement(
+	                                                        "span",
+	                                                        { className: "label label-yellow" },
+	                                                        "YELLOW"
+	                                                    ),
+	                                                    " if medicine has"
 	                                                ),
 	                                                _react2.default.createElement(
 	                                                    "div",
