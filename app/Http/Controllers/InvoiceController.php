@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Shop_medicine;
 use App\Medicine;
+use App\Invoices;
+use App\Invoice_details;
 
 use Illuminate\Support\Facades\Input;
 
@@ -72,13 +74,28 @@ class InvoiceController extends Controller
         echo $request->medicine_id[0];
         print_r($_POST);
         exit();
+        $user_id = 1;//Auth::user()->id;
+        $Shop_invoice = new Invoices;
+
+        $Shop_invoice->user_id = $user_id;
+        $Shop_invoice->name = "Invoice ".date(YmdHis);
+        $Shop_invoice->created_at = date('Y-m-d H:i:s');
+        $Shop_invoice->updated_at =  date('Y-m-d H:i:s');
+        $invoice_id = $Shop_invoice->save();
         
         for($i=0;$i<count($request->medicine_id);$i++){
             $medicine_id = $request->medicine_id[$i];
             $shop_id = 1;//Auth::user()->shop_id;
-            if($request->is_shop_medicine[$i]==1){
-                $this->__insert_shop_medicine($shop_id, $medicine_id);
+            if($request->is_shop_medicine[$i]==0){
+                $medicine_id = $this->__insert_shop_medicine($shop_id, $medicine_id);
             }
+            
+            $Shop_invoice = new Invoice_details;
+
+            $Shop_medicines->medicine_id = $request->medicine_id;
+            $Shop_medicines->shop_id = Auth::user()->shop_id;
+            $Shop_medicines->created_at = date('Y-m-d H:i:s');
+            $Shop_medicines->updated_at =  date('Y-m-d H:i:s');
         }
         
         $Shop_medicines = new Shop_medicine;

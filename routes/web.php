@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function()
 });
 
 Route::resource('invoice', 'InvoiceController');
+Route::resource('setting', 'SettingController');
 
 Route::get('/invoice', function () {
     return view('pages.invoice');
