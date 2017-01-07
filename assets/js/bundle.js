@@ -23132,7 +23132,7 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -23150,129 +23150,212 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var MedicineList = function (_React$Component) {
-	  _inherits(MedicineList, _React$Component);
+	    _inherits(MedicineList, _React$Component);
 
-	  function MedicineList(props) {
-	    _classCallCheck(this, MedicineList);
+	    function MedicineList(props) {
+	        _classCallCheck(this, MedicineList);
 
-	    return _possibleConstructorReturn(this, (MedicineList.__proto__ || Object.getPrototypeOf(MedicineList)).call(this, props));
-	  }
+	        return _possibleConstructorReturn(this, (MedicineList.__proto__ || Object.getPrototypeOf(MedicineList)).call(this, props));
+	    }
 
-	  _createClass(MedicineList, [{
-	    key: "render",
-	    value: function render() {
-	      var self = this;
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "page-content" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "page-breadcrumbs" },
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "breadcrumb" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              _react2.default.createElement("i", { className: "fa fa-home" }),
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Home"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              { className: "active" },
-	              "Medicine / List"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "page-body" },
-	          _react2.default.createElement(
-	            "div",
-	            { className: "row" },
-	            _react2.default.createElement(
-	              "div",
-	              { className: "col-lg-12" },
-	              _react2.default.createElement(
+	    _createClass(MedicineList, [{
+	        key: "render",
+	        value: function render() {
+	            var self = this;
+	            return _react2.default.createElement(
 	                "div",
-	                { className: "widget" },
+	                { className: "page-content" },
 	                _react2.default.createElement(
-	                  "div",
-	                  { className: "widget-header bordered-bottom bordered-themesecondary" },
-	                  _react2.default.createElement("i", { className: "widget-icon fa fa-tags themesecondary" }),
-	                  _react2.default.createElement(
-	                    "span",
-	                    { className: "widget-caption themesecondary" },
-	                    "Medicine List"
-	                  )
+	                    "div",
+	                    { className: "page-breadcrumbs" },
+	                    _react2.default.createElement(
+	                        "ul",
+	                        { className: "breadcrumb" },
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement("i", { className: "fa fa-home" }),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "#" },
+	                                "Home"
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "active" },
+	                            "Medicine / List"
+	                        )
+	                    )
 	                ),
 	                _react2.default.createElement(
-	                  "div",
-	                  { className: "widget-body  no-padding" },
-	                  _react2.default.createElement(
 	                    "div",
-	                    { className: "tickets-container" },
+	                    { className: "page-body" },
 	                    _react2.default.createElement(
-	                      "ul",
-	                      { className: "tickets-list" },
-	                      this.props.container.state.items.map(function (item, index) {
-
-	                        return _react2.default.createElement(
-	                          "li",
-	                          { className: "ticket-item", key: index },
-	                          _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
 	                            "div",
-	                            { className: "row" },
+	                            { className: "col-lg-12" },
 	                            _react2.default.createElement(
-	                              "div",
-	                              { className: "ticket-user col-lg-6 col-sm-12" },
-	                              _react2.default.createElement("img", { src: item.img, className: "user-avatar" }),
-	                              _react2.default.createElement(
-	                                "span",
-	                                { className: "user-name" },
-	                                item.name
-	                              )
-	                            ),
-	                            _react2.default.createElement(
-	                              "div",
-	                              { className: "ticket-time  col-lg-4 col-sm-6 col-xs-12" },
-	                              _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
-	                              _react2.default.createElement(
-	                                "span",
-	                                { className: "time" },
-	                                "10 \xA0",
-	                                _react2.default.createElement("i", { className: "fa fa-inr", "aria-hidden": "true" })
-	                              )
-	                            ),
-	                            _react2.default.createElement(
-	                              "div",
-	                              { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
-	                              _react2.default.createElement("span", { className: "divider hidden-xs" }),
-	                              _react2.default.createElement(
-	                                "span",
-	                                { className: "type" },
-	                                "100"
-	                              )
-	                            )
-	                          )
-	                        );
-	                      })
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
+	                                "div",
+	                                { className: "widget" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "widget-header bordered-bottom bordered-themesecondary" },
+	                                    _react2.default.createElement("i", { className: "widget-icon fa fa-tags themesecondary" }),
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "widget-caption themesecondary" },
+	                                        "Medicine List"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "widget-body  no-padding" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "tickets-container" },
+	                                        _react2.default.createElement(
+	                                            "ul",
+	                                            { className: "tickets-list" },
+	                                            _react2.default.createElement(
+	                                                "li",
+	                                                { className: "ticket-item" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "row" },
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-user col-lg-4 col-sm-12" },
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "user-name" },
+	                                                            "Name"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-time  col-lg-2 col-sm-6 col-xs-12" },
+	                                                        _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "time" },
+	                                                            "Price"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-time  col-lg-2 col-sm-6 col-xs-12" },
+	                                                        _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "time" },
+	                                                            "Quantity"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                                                        _react2.default.createElement("span", { className: "divider hidden-xs" }),
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "type" },
+	                                                            "Purchase Date"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                                                        _react2.default.createElement("span", { className: "divider hidden-xs" }),
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "type" },
+	                                                            "Expiry Date"
+	                                                        )
+	                                                    )
+	                                                )
+	                                            ),
+	                                            this.props.container.state.items.map(function (item, index) {
 
-	  return MedicineList;
+	                                                return _react2.default.createElement(
+	                                                    "li",
+	                                                    { className: "ticket-item", key: index },
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "row" },
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-user col-lg-4 col-sm-12" },
+	                                                            _react2.default.createElement("img", { src: item.img, className: "user-avatar" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "user-name" },
+	                                                                item.name
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-time  col-lg-2 col-sm-6 col-xs-12" },
+	                                                            _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "time" },
+	                                                                item.price,
+	                                                                " \xA0",
+	                                                                _react2.default.createElement("i", { className: "fa fa-inr", "aria-hidden": "true" })
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-time  col-lg-2 col-sm-6 col-xs-12" },
+	                                                            _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "time" },
+	                                                                item.qty
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                                                            _react2.default.createElement("span", { className: "divider hidden-xs" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "type" },
+	                                                                item.purchase_date
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                                                            _react2.default.createElement("span", { className: "divider hidden-xs" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "type" },
+	                                                                item.exp_date
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-state bg-palegreen" },
+	                                                            _react2.default.createElement("i", { className: "fa fa-check" })
+	                                                        )
+	                                                    )
+	                                                );
+	                                            })
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MedicineList;
 	}(_react2.default.Component);
 
 	exports.default = MedicineList;
@@ -23392,7 +23475,7 @@
 	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
 	                                                    'label',
-	                                                    { 'for': 'inputEmail3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
 	                                                    'Name:'
 	                                                ),
 	                                                _react2.default.createElement(
@@ -23410,7 +23493,7 @@
 	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
 	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
 	                                                    'Quantity:'
 	                                                ),
 	                                                _react2.default.createElement(
@@ -23427,7 +23510,7 @@
 	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
 	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
 	                                                    'Price:'
 	                                                ),
 	                                                _react2.default.createElement(
@@ -23443,13 +23526,29 @@
 	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
 	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
+	                                                    'Purchase Date:'
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    'div',
+	                                                    { className: 'col-sm-10' },
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control datepicker', placeholder: 'Discount', ref: function ref(purchase_date) {
+	                                                            return _this2.purchase_date = purchase_date;
+	                                                        } })
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'form-group' },
+	                                                _react2.default.createElement(
+	                                                    'label',
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
 	                                                    'Expiry Date:'
 	                                                ),
 	                                                _react2.default.createElement(
 	                                                    'div',
 	                                                    { className: 'col-sm-10' },
-	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'datepicker', placeholder: 'Discount', ref: function ref(exp_date) {
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control datepicker', placeholder: 'Discount', ref: function ref(exp_date) {
 	                                                            return _this2.exp_date = exp_date;
 	                                                        } })
 	                                                )
@@ -23488,8 +23587,10 @@
 
 	                var data = {
 	                    medicine_id: $("#medicine_id").val(),
-	                    quantity: this.quantity.value,
-	                    print: 10
+	                    qty: this.quantity.value,
+	                    price: this.price.value,
+	                    purchase_date: this.purchase_date.value,
+	                    exp_date: this.exp_date.value
 	                };
 	                $.when(self.add(data)).then(function (response) {
 	                    _toastr2.default["success"]("'" + self.medicine_name.value + "' added successfully!");
@@ -23522,7 +23623,7 @@
 	                    console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
 	                }
 	            });
-	            $("#datepicker").datepicker({ minDate: 0, maxDate: "+1M +10D" });
+	            $(".datepicker").datepicker({ minDate: 0, maxDate: "+1M +10D", dateFormat: "dd/mm/yy" });
 	        }
 	    }]);
 
