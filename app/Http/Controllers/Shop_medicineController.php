@@ -29,7 +29,12 @@ class Shop_medicineController extends Controller
                 $shop_medicine = Shop_medicine::join('medicine', 'medicine.id', '=', 'shop_medicines.medicine_id')
                         ->select(
                                 'shop_medicines.id',
+                                'shop_medicines.price',
+                                'shop_medicines.qty',
+                                'shop_medicines.purchase_date',
+                                'shop_medicines.exp_date',
                                 'medicine.name',
+                                'medicine.type',
                                 DB::raw("(CONCAT('".$url_prefix."','/',medicine.man_cmp_logo)) as `img`")
                                 )
                         ->where('shop_medicines.shop_id','=',$shop_id)->get();
@@ -74,6 +79,10 @@ class Shop_medicineController extends Controller
 
         $Shop_medicines->medicine_id = $request->medicine_id;
         $Shop_medicines->shop_id = Auth::user()->shop_id;
+        $Shop_medicines->price = $request->price;
+        $Shop_medicines->qty = $request->qty;
+        $Shop_medicines->purchase_date = date('Y-m-d',strtotime(str_replace('/','-',$request->purchase_date)));
+        $Shop_medicines->exp_date = date('Y-m-d',  strtotime(str_replace('/','-',$request->exp_date)));
         $Shop_medicines->created_at = date('Y-m-d H:i:s');
         $Shop_medicines->updated_at =  date('Y-m-d H:i:s');
         
