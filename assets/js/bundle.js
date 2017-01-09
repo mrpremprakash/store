@@ -21503,31 +21503,31 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _list = __webpack_require__(184);
+	var _list = __webpack_require__(185);
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _add = __webpack_require__(185);
+	var _add = __webpack_require__(186);
 
 	var _add2 = _interopRequireDefault(_add);
 
-	var _team_member = __webpack_require__(192);
+	var _team_member = __webpack_require__(193);
 
 	var _team_member2 = _interopRequireDefault(_team_member);
 
-	var _profile = __webpack_require__(193);
+	var _profile = __webpack_require__(194);
 
 	var _profile2 = _interopRequireDefault(_profile);
 
-	var _add3 = __webpack_require__(194);
+	var _add3 = __webpack_require__(195);
 
 	var _add4 = _interopRequireDefault(_add3);
 
-	var _print = __webpack_require__(197);
+	var _print = __webpack_require__(198);
 
 	var _print2 = _interopRequireDefault(_print);
 
-	var _expiry_alert = __webpack_require__(198);
+	var _expiry_alert = __webpack_require__(199);
 
 	var _expiry_alert2 = _interopRequireDefault(_expiry_alert);
 
@@ -21605,6 +21605,32 @@
 	            items: response.result
 	          });
 	        }
+	      });
+	    }
+	  }, {
+	    key: 'getSetting',
+	    value: function getSetting() {
+	      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	      return $.get('setting', data);
+	    }
+	  }, {
+	    key: 'getMedicines',
+	    value: function getMedicines() {
+	      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	      return $.get('shop_medicine', data);
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var self = this;
+	      $.when(this.getSetting(), this.getMedicines()).done(function () {
+	        var settings = arguments[0];
+	        var medicines = arguments[1];
+	        self.setState({
+	          items: medicines[0].result
+	        });
 	      });
 	    }
 	  }]);
@@ -22416,7 +22442,7 @@
 /* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -22427,6 +22453,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _medicine_status_bar = __webpack_require__(184);
+
+	var _medicine_status_bar2 = _interopRequireDefault(_medicine_status_bar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22439,384 +22469,206 @@
 	var Post = function (_React$Component) {
 	    _inherits(Post, _React$Component);
 
-	    function Post() {
+	    function Post(props) {
 	        _classCallCheck(this, Post);
 
-	        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this, props));
 	    }
 
 	    _createClass(Post, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "page-content" },
+	                'div',
+	                { className: 'page-content' },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "page-breadcrumbs" },
+	                    'div',
+	                    { className: 'page-breadcrumbs' },
 	                    _react2.default.createElement(
-	                        "ul",
-	                        { className: "breadcrumb" },
+	                        'ul',
+	                        { className: 'breadcrumb' },
 	                        _react2.default.createElement(
-	                            "li",
+	                            'li',
 	                            null,
-	                            _react2.default.createElement("i", { className: "fa fa-home" }),
+	                            _react2.default.createElement('i', { className: 'fa fa-home' }),
 	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "javascript:void(0);" },
-	                                "Home"
+	                                'a',
+	                                { href: 'javascript:void(0);' },
+	                                'Home'
 	                            )
 	                        )
 	                    )
 	                ),
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "page-body" },
+	                    'div',
+	                    { className: 'page-body' },
+	                    _react2.default.createElement(_medicine_status_bar2.default, { container: this.props.container }),
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "row" },
+	                        'div',
+	                        { className: 'row' },
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "col-lg-12 col-md-12 col-sm-12 col-xs-12" },
+	                            'div',
+	                            { className: 'col-lg-6 col-md-12 col-sm-12 col-xs-12' },
 	                            _react2.default.createElement(
-	                                "div",
-	                                { className: "row" },
+	                                'div',
+	                                { className: 'databox databox-xxlg databox-vertical databox-shadowed bg-white radius-bordered padding-5' },
 	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "col-lg-3 col-md-3 col-sm-6 col-xs-12" },
+	                                    'div',
+	                                    { className: 'databox-top' },
 	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "databox bg-white radius-bordered" },
+	                                        'div',
+	                                        { className: 'databox-row row-12' },
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-left bg-themesecondary" },
+	                                            'div',
+	                                            { className: 'databox-cell cell-3 text-center' },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-piechart" },
+	                                                'div',
+	                                                { className: 'databox-number number-xxlg sonic-silver' },
+	                                                '164'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'databox-text storm-cloud' },
+	                                                'online'
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'databox-cell cell-9 text-align-center' },
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'databox-row row-6 text-left' },
+	                                                _react2.default.createElement('span', { className: 'badge badge-palegreen badge-empty margin-left-5' }),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { "data-toggle": "easypiechart", className: "easyPieChart", "data-barcolor": "#fff", "data-linecap": "butt", "data-percent": "50", "data-animate": "500", "data-linewidth": "3", "data-size": "47", "data-trackcolor": "rgba(255,255,255,0.1)", style: { width: '47px', height: '47px', lineHeight: '47px' } },
-	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "white font-90" },
-	                                                        "50%"
-	                                                    ),
-	                                                    _react2.default.createElement("canvas", { width: "47", height: "47" })
-	                                                )
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-right" },
-	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "databox-number themesecondary" },
-	                                                "28 medicines"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-text darkgray" },
-	                                                "Will Expiry in 10 days"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-stat themesecondary radius-bordered" },
-	                                                _react2.default.createElement("i", { className: "stat-icon icon-lg fa fa-tasks" })
-	                                            )
-	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "col-lg-3 col-md-3 col-sm-6 col-xs-12" },
-	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "databox bg-white radius-bordered" },
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-left bg-themethirdcolor" },
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-piechart" },
-	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { "data-toggle": "easypiechart", className: "easyPieChart", "data-barcolor": "#fff", "data-linecap": "butt", "data-percent": "15", "data-animate": "500", "data-linewidth": "3", "data-size": "47", "data-trackcolor": "rgba(255,255,255,0.2)", style: { width: '47px', height: '47px', lineHeight: '47px' } },
-	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "white font-90" },
-	                                                        "15%"
-	                                                    ),
-	                                                    _react2.default.createElement("canvas", { width: "47", height: "47" })
-	                                                )
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-right" },
-	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "databox-number themethirdcolor" },
-	                                                "5 medicines"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-text darkgray" },
-	                                                "will expire in 20 days"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-stat themethirdcolor radius-bordered" },
-	                                                _react2.default.createElement("i", { className: "stat-icon  icon-lg fa fa-envelope-o" })
-	                                            )
-	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "col-lg-3 col-md-3 col-sm-6 col-xs-12" },
-	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "databox bg-white radius-bordered" },
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-left bg-themeprimary" },
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-piechart" },
-	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { id: "users-pie", "data-toggle": "easypiechart", className: "easyPieChart", "data-barcolor": "#fff", "data-linecap": "butt", "data-percent": "76", "data-animate": "500", "data-linewidth": "3", "data-size": "47", "data-trackcolor": "rgba(255,255,255,0.1)", style: { width: '47px', height: '47px', lineHeight: '47px' } },
-	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "white font-90" },
-	                                                        "76%"
-	                                                    ),
-	                                                    _react2.default.createElement("canvas", { width: "47", height: "47" })
-	                                                )
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-right" },
-	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "databox-number themeprimary" },
-	                                                "92 medicines"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-text darkgray" },
-	                                                "Total"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-state bg-themeprimary" },
-	                                                _react2.default.createElement("i", { className: "fa fa-check" })
-	                                            )
-	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "col-lg-3 col-md-3 col-sm-6 col-xs-12" },
-	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "databox bg-white radius-bordered" },
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-left no-padding" },
-	                                            _react2.default.createElement("img", { src: "assets/img/avatars/John-Smith.jpg", style: { width: '65px', height: '65px' } })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-right padding-top-20" },
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-stat palegreen" },
-	                                                _react2.default.createElement("i", { className: "stat-icon icon-xlg fa fa-phone" })
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-text darkgray" },
-	                                                "JOHN SMITH"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-text darkgray" },
-	                                                "TOP RESELLER"
-	                                            )
-	                                        )
-	                                    )
-	                                )
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "row" },
-	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "col-lg-6 col-md-12 col-sm-12 col-xs-12" },
-	                            _react2.default.createElement(
-	                                "div",
-	                                { className: "databox databox-xxlg databox-vertical databox-shadowed bg-white radius-bordered padding-5" },
-	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "databox-top" },
-	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "databox-row row-12" },
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-cell cell-3 text-center" },
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-number number-xxlg sonic-silver" },
-	                                                "164"
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-text storm-cloud" },
-	                                                "online"
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-cell cell-9 text-align-center" },
-	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-row row-6 text-left" },
-	                                                _react2.default.createElement("span", { className: "badge badge-palegreen badge-empty margin-left-5" }),
-	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-inlinetext uppercase darkgray margin-left-5" },
-	                                                    "NEW"
+	                                                    'span',
+	                                                    { className: 'databox-inlinetext uppercase darkgray margin-left-5' },
+	                                                    'NEW'
 	                                                ),
-	                                                _react2.default.createElement("span", { className: "badge badge-yellow badge-empty margin-left-5" }),
+	                                                _react2.default.createElement('span', { className: 'badge badge-yellow badge-empty margin-left-5' }),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-inlinetext uppercase darkgray margin-left-5" },
-	                                                    "RETURNING"
+	                                                    'span',
+	                                                    { className: 'databox-inlinetext uppercase darkgray margin-left-5' },
+	                                                    'RETURNING'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-row row-6" },
+	                                                'div',
+	                                                { className: 'databox-row row-6' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "progress bg-yellow progress-no-radius" },
-	                                                    _react2.default.createElement("div", { className: "progress-bar progress-bar-palegreen", role: "progressbar", "aria-valuenow": "20", "aria-valuemin": "0", "aria-valuemax": "100", style: { width: '78%' } })
+	                                                    'div',
+	                                                    { className: 'progress bg-yellow progress-no-radius' },
+	                                                    _react2.default.createElement('div', { className: 'progress-bar progress-bar-palegreen', role: 'progressbar', 'aria-valuenow': '20', 'aria-valuemin': '0', 'aria-valuemax': '100', style: { width: '78%' } })
 	                                                )
 	                                            )
 	                                        )
 	                                    )
 	                                ),
 	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "databox-bottom" },
+	                                    'div',
+	                                    { className: 'databox-bottom' },
 	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "databox-row row-12" },
+	                                        'div',
+	                                        { className: 'databox-row row-12' },
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-cell cell-7 text-center  padding-5" },
+	                                            'div',
+	                                            { className: 'databox-cell cell-7 text-center  padding-5' },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { id: "dashboard-pie-chart-sources", className: "chart", style: { padding: '0px', position: 'relative' } },
-	                                                _react2.default.createElement("canvas", { className: "flot-base", width: "270", height: "220", style: { direction: 'ltr', position: 'absolute', left: '0px', top: '0px', width: '270px', height: '220px' } }),
-	                                                _react2.default.createElement("canvas", { className: "flot-overlay", width: "270", height: "220", style: { direction: 'ltr', position: 'absolute', left: '0px', top: '0px', width: '270px', height: '220px' } })
+	                                                'div',
+	                                                { id: 'dashboard-pie-chart-sources', className: 'chart', style: { padding: '0px', position: 'relative' } },
+	                                                _react2.default.createElement('canvas', { className: 'flot-base', width: '270', height: '220', style: { direction: 'ltr', position: 'absolute', left: '0px', top: '0px', width: '270px', height: '220px' } }),
+	                                                _react2.default.createElement('canvas', { className: 'flot-overlay', width: '270', height: '220', style: { direction: 'ltr', position: 'absolute', left: '0px', top: '0px', width: '270px', height: '220px' } })
 	                                            )
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "databox-cell cell-5 text-center no-padding-left padding-bottom-30" },
+	                                            'div',
+	                                            { className: 'databox-cell cell-5 text-center no-padding-left padding-bottom-30' },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-row row-2 bordered-bottom bordered-ivory padding-10" },
+	                                                'div',
+	                                                { className: 'databox-row row-2 bordered-bottom bordered-ivory padding-10' },
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text sonic-silver pull-left no-margin" },
-	                                                    "Type"
+	                                                    'span',
+	                                                    { className: 'databox-text sonic-silver pull-left no-margin' },
+	                                                    'Type'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text sonic-silver pull-right no-margin uppercase" },
-	                                                    "PCT"
+	                                                    'span',
+	                                                    { className: 'databox-text sonic-silver pull-right no-margin uppercase' },
+	                                                    'PCT'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-row row-2 bordered-bottom bordered-ivory padding-10" },
-	                                                _react2.default.createElement("span", { className: "badge badge-blue badge-empty pull-left margin-5" }),
+	                                                'div',
+	                                                { className: 'databox-row row-2 bordered-bottom bordered-ivory padding-10' },
+	                                                _react2.default.createElement('span', { className: 'badge badge-blue badge-empty pull-left margin-5' }),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-left no-margin hidden-xs" },
-	                                                    "FEED"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-left no-margin hidden-xs' },
+	                                                    'FEED'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-right no-margin uppercase" },
-	                                                    "46%"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-right no-margin uppercase' },
+	                                                    '46%'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-row row-2 bordered-bottom bordered-ivory padding-10" },
-	                                                _react2.default.createElement("span", { className: "badge badge-orange badge-empty pull-left margin-5" }),
+	                                                'div',
+	                                                { className: 'databox-row row-2 bordered-bottom bordered-ivory padding-10' },
+	                                                _react2.default.createElement('span', { className: 'badge badge-orange badge-empty pull-left margin-5' }),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-left no-margin hidden-xs" },
-	                                                    "PREFERRAL"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-left no-margin hidden-xs' },
+	                                                    'PREFERRAL'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-right no-margin uppercase" },
-	                                                    "21%"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-right no-margin uppercase' },
+	                                                    '21%'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-row row-2 bordered-bottom bordered-ivory padding-10" },
-	                                                _react2.default.createElement("span", { className: "badge badge-pink badge-empty pull-left margin-5" }),
+	                                                'div',
+	                                                { className: 'databox-row row-2 bordered-bottom bordered-ivory padding-10' },
+	                                                _react2.default.createElement('span', { className: 'badge badge-pink badge-empty pull-left margin-5' }),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-left no-margin hidden-xs" },
-	                                                    "DIRECT"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-left no-margin hidden-xs' },
+	                                                    'DIRECT'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-right no-margin uppercase" },
-	                                                    "12%"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-right no-margin uppercase' },
+	                                                    '12%'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-row row-2 bordered-bottom bordered-ivory padding-10" },
-	                                                _react2.default.createElement("span", { className: "badge badge-palegreen badge-empty pull-left margin-5" }),
+	                                                'div',
+	                                                { className: 'databox-row row-2 bordered-bottom bordered-ivory padding-10' },
+	                                                _react2.default.createElement('span', { className: 'badge badge-palegreen badge-empty pull-left margin-5' }),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-left no-margin hidden-xs" },
-	                                                    "EMAIL"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-left no-margin hidden-xs' },
+	                                                    'EMAIL'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-right no-margin uppercase" },
-	                                                    "11%"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-right no-margin uppercase' },
+	                                                    '11%'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "databox-row row-2 padding-10" },
-	                                                _react2.default.createElement("span", { className: "badge badge-yellow badge-empty pull-left margin-5" }),
+	                                                'div',
+	                                                { className: 'databox-row row-2 padding-10' },
+	                                                _react2.default.createElement('span', { className: 'badge badge-yellow badge-empty pull-left margin-5' }),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-left no-margin hidden-xs" },
-	                                                    "ORGANIC"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-left no-margin hidden-xs' },
+	                                                    'ORGANIC'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "databox-text darkgray pull-right no-margin uppercase" },
-	                                                    "10%"
+	                                                    'span',
+	                                                    { className: 'databox-text darkgray pull-right no-margin uppercase' },
+	                                                    '10%'
 	                                                )
 	                                            )
 	                                        )
@@ -22825,290 +22677,290 @@
 	                            )
 	                        ),
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "col-lg-6 col-md-3 col-sm-12 col-xs-12" },
+	                            'div',
+	                            { className: 'col-lg-6 col-md-3 col-sm-12 col-xs-12' },
 	                            _react2.default.createElement(
-	                                "div",
-	                                { className: "orders-container" },
+	                                'div',
+	                                { className: 'orders-container' },
 	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "orders-header" },
+	                                    'div',
+	                                    { className: 'orders-header' },
 	                                    _react2.default.createElement(
-	                                        "h6",
+	                                        'h6',
 	                                        null,
-	                                        "Latest Orders"
+	                                        'Latest Orders'
 	                                    )
 	                                ),
 	                                _react2.default.createElement(
-	                                    "ul",
-	                                    { className: "orders-list" },
+	                                    'ul',
+	                                    { className: 'orders-list' },
 	                                    _react2.default.createElement(
-	                                        "li",
-	                                        { className: "order-item" },
+	                                        'li',
+	                                        { className: 'order-item' },
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "row" },
+	                                            'div',
+	                                            { className: 'row' },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left" },
+	                                                'div',
+	                                                { className: 'col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-booker" },
-	                                                    "Ned Stards"
+	                                                    'div',
+	                                                    { className: 'item-booker' },
+	                                                    'Ned Stards'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-time" },
-	                                                    _react2.default.createElement("i", { className: "fa fa-calendar" }),
+	                                                    'div',
+	                                                    { className: 'item-time' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-calendar' }),
 	                                                    _react2.default.createElement(
-	                                                        "span",
+	                                                        'span',
 	                                                        null,
-	                                                        "10 minutes ago"
+	                                                        '10 minutes ago'
 	                                                    )
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right" },
+	                                                'div',
+	                                                { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-price" },
+	                                                    'div',
+	                                                    { className: 'item-price' },
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "currency" },
-	                                                        "$"
+	                                                        'span',
+	                                                        { className: 'currency' },
+	                                                        '$'
 	                                                    ),
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "price" },
-	                                                        "400"
+	                                                        'span',
+	                                                        { className: 'price' },
+	                                                        '400'
 	                                                    )
 	                                                )
 	                                            )
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "item-more", href: "" },
-	                                            _react2.default.createElement("i", null)
+	                                            'a',
+	                                            { className: 'item-more', href: '' },
+	                                            _react2.default.createElement('i', null)
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        "li",
-	                                        { className: "order-item top" },
+	                                        'li',
+	                                        { className: 'order-item top' },
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "row" },
+	                                            'div',
+	                                            { className: 'row' },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left" },
+	                                                'div',
+	                                                { className: 'col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-booker" },
-	                                                    "Steve Lewis"
+	                                                    'div',
+	                                                    { className: 'item-booker' },
+	                                                    'Steve Lewis'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-time" },
-	                                                    _react2.default.createElement("i", { className: "fa fa-calendar" }),
+	                                                    'div',
+	                                                    { className: 'item-time' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-calendar' }),
 	                                                    _react2.default.createElement(
-	                                                        "span",
+	                                                        'span',
 	                                                        null,
-	                                                        "2 hours ago"
+	                                                        '2 hours ago'
 	                                                    )
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right" },
+	                                                'div',
+	                                                { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-price" },
+	                                                    'div',
+	                                                    { className: 'item-price' },
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "currency" },
-	                                                        "$"
+	                                                        'span',
+	                                                        { className: 'currency' },
+	                                                        '$'
 	                                                    ),
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "price" },
-	                                                        "620"
+	                                                        'span',
+	                                                        { className: 'price' },
+	                                                        '620'
 	                                                    )
 	                                                )
 	                                            )
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "item-more", href: "" },
-	                                            _react2.default.createElement("i", null)
+	                                            'a',
+	                                            { className: 'item-more', href: '' },
+	                                            _react2.default.createElement('i', null)
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        "li",
-	                                        { className: "order-item" },
+	                                        'li',
+	                                        { className: 'order-item' },
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "row" },
+	                                            'div',
+	                                            { className: 'row' },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left" },
+	                                                'div',
+	                                                { className: 'col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-booker" },
-	                                                    "John Ford"
+	                                                    'div',
+	                                                    { className: 'item-booker' },
+	                                                    'John Ford'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-time" },
-	                                                    _react2.default.createElement("i", { className: "fa fa-calendar" }),
+	                                                    'div',
+	                                                    { className: 'item-time' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-calendar' }),
 	                                                    _react2.default.createElement(
-	                                                        "span",
+	                                                        'span',
 	                                                        null,
-	                                                        "Today 8th July"
+	                                                        'Today 8th July'
 	                                                    )
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right" },
+	                                                'div',
+	                                                { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-price" },
+	                                                    'div',
+	                                                    { className: 'item-price' },
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "currency" },
-	                                                        "$"
+	                                                        'span',
+	                                                        { className: 'currency' },
+	                                                        '$'
 	                                                    ),
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "price" },
-	                                                        "220"
+	                                                        'span',
+	                                                        { className: 'price' },
+	                                                        '220'
 	                                                    )
 	                                                )
 	                                            )
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "item-more", href: "" },
-	                                            _react2.default.createElement("i", null)
+	                                            'a',
+	                                            { className: 'item-more', href: '' },
+	                                            _react2.default.createElement('i', null)
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        "li",
-	                                        { className: "order-item" },
+	                                        'li',
+	                                        { className: 'order-item' },
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "row" },
+	                                            'div',
+	                                            { className: 'row' },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left" },
+	                                                'div',
+	                                                { className: 'col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-booker" },
-	                                                    "Kim Basinger"
+	                                                    'div',
+	                                                    { className: 'item-booker' },
+	                                                    'Kim Basinger'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-time" },
-	                                                    _react2.default.createElement("i", { className: "fa fa-calendar" }),
+	                                                    'div',
+	                                                    { className: 'item-time' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-calendar' }),
 	                                                    _react2.default.createElement(
-	                                                        "span",
+	                                                        'span',
 	                                                        null,
-	                                                        "Yesterday 7th July"
+	                                                        'Yesterday 7th July'
 	                                                    )
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right" },
+	                                                'div',
+	                                                { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-price" },
+	                                                    'div',
+	                                                    { className: 'item-price' },
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "currency" },
-	                                                        "$"
+	                                                        'span',
+	                                                        { className: 'currency' },
+	                                                        '$'
 	                                                    ),
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "price" },
-	                                                        "400"
+	                                                        'span',
+	                                                        { className: 'price' },
+	                                                        '400'
 	                                                    )
 	                                                )
 	                                            )
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "item-more", href: "" },
-	                                            _react2.default.createElement("i", null)
+	                                            'a',
+	                                            { className: 'item-more', href: '' },
+	                                            _react2.default.createElement('i', null)
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        "li",
-	                                        { className: "order-item" },
+	                                        'li',
+	                                        { className: 'order-item' },
 	                                        _react2.default.createElement(
-	                                            "div",
-	                                            { className: "row" },
+	                                            'div',
+	                                            { className: 'row' },
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left" },
+	                                                'div',
+	                                                { className: 'col-lg-8 col-md-8 col-sm-8 col-xs-8 item-left' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-booker" },
-	                                                    "Steve Lewis"
+	                                                    'div',
+	                                                    { className: 'item-booker' },
+	                                                    'Steve Lewis'
 	                                                ),
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-time" },
-	                                                    _react2.default.createElement("i", { className: "fa fa-calendar" }),
+	                                                    'div',
+	                                                    { className: 'item-time' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-calendar' }),
 	                                                    _react2.default.createElement(
-	                                                        "span",
+	                                                        'span',
 	                                                        null,
-	                                                        "5th July"
+	                                                        '5th July'
 	                                                    )
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "div",
-	                                                { className: "col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right" },
+	                                                'div',
+	                                                { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4 item-right' },
 	                                                _react2.default.createElement(
-	                                                    "div",
-	                                                    { className: "item-price" },
+	                                                    'div',
+	                                                    { className: 'item-price' },
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "currency" },
-	                                                        "$"
+	                                                        'span',
+	                                                        { className: 'currency' },
+	                                                        '$'
 	                                                    ),
 	                                                    _react2.default.createElement(
-	                                                        "span",
-	                                                        { className: "price" },
-	                                                        "340"
+	                                                        'span',
+	                                                        { className: 'price' },
+	                                                        '340'
 	                                                    )
 	                                                )
 	                                            )
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { className: "item-more", href: "" },
-	                                            _react2.default.createElement("i", null)
+	                                            'a',
+	                                            { className: 'item-more', href: '' },
+	                                            _react2.default.createElement('i', null)
 	                                        )
 	                                    )
 	                                ),
 	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "orders-footer" },
+	                                    'div',
+	                                    { className: 'orders-footer' },
 	                                    _react2.default.createElement(
-	                                        "a",
-	                                        { className: "show-all", href: "" },
-	                                        _react2.default.createElement("i", { className: "fa fa-angle-down" }),
-	                                        " Show All"
+	                                        'a',
+	                                        { className: 'show-all', href: '' },
+	                                        _react2.default.createElement('i', { className: 'fa fa-angle-down' }),
+	                                        ' Show All'
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "help" },
+	                                        'div',
+	                                        { className: 'help' },
 	                                        _react2.default.createElement(
-	                                            "a",
-	                                            { href: "" },
-	                                            _react2.default.createElement("i", { className: "fa fa-question" })
+	                                            'a',
+	                                            { href: '' },
+	                                            _react2.default.createElement('i', { className: 'fa fa-question' })
 	                                        )
 	                                    )
 	                                )
@@ -23132,7 +22984,247 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MedicineStatusBar = function (_React$Component) {
+	    _inherits(MedicineStatusBar, _React$Component);
+
+	    function MedicineStatusBar(props) {
+	        _classCallCheck(this, MedicineStatusBar);
+
+	        return _possibleConstructorReturn(this, (MedicineStatusBar.__proto__ || Object.getPrototypeOf(MedicineStatusBar)).call(this, props));
+	        //console.log(this.props);
+	    }
+
+	    _createClass(MedicineStatusBar, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "row" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "col-lg-12 col-md-12 col-sm-12 col-xs-12" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-lg-3 col-md-3 col-sm-6 col-xs-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "databox bg-white radius-bordered" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "databox-left bg-themesecondary" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-piechart" },
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { "data-toggle": "easypiechart", className: "easyPieChart", "data-barcolor": "#fff", "data-linecap": "butt", "data-percent": "50", "data-animate": "500", "data-linewidth": "3", "data-size": "47", "data-trackcolor": "rgba(255,255,255,0.1)", style: { width: '47px', height: '47px', lineHeight: '47px' } },
+	                                            _react2.default.createElement(
+	                                                "span",
+	                                                { className: "white font-90" },
+	                                                "50%"
+	                                            ),
+	                                            _react2.default.createElement("canvas", { width: "47", height: "47" })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "databox-right" },
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "databox-number themesecondary" },
+	                                        "28 medicines"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-text darkgray" },
+	                                        "Will Expiry in 10 days"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-stat themesecondary radius-bordered" },
+	                                        _react2.default.createElement("i", { className: "stat-icon icon-lg fa fa-tasks" })
+	                                    )
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-lg-3 col-md-3 col-sm-6 col-xs-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "databox bg-white radius-bordered" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "databox-left bg-themethirdcolor" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-piechart" },
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { "data-toggle": "easypiechart", className: "easyPieChart", "data-barcolor": "#fff", "data-linecap": "butt", "data-percent": "15", "data-animate": "500", "data-linewidth": "3", "data-size": "47", "data-trackcolor": "rgba(255,255,255,0.2)", style: { width: '47px', height: '47px', lineHeight: '47px' } },
+	                                            _react2.default.createElement(
+	                                                "span",
+	                                                { className: "white font-90" },
+	                                                "15%"
+	                                            ),
+	                                            _react2.default.createElement("canvas", { width: "47", height: "47" })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "databox-right" },
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "databox-number themethirdcolor" },
+	                                        "5 medicines"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-text darkgray" },
+	                                        "will expire in 20 days"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-stat themethirdcolor radius-bordered" },
+	                                        _react2.default.createElement("i", { className: "stat-icon  icon-lg fa fa-envelope-o" })
+	                                    )
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-lg-3 col-md-3 col-sm-6 col-xs-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "databox bg-white radius-bordered" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "databox-left bg-themeprimary" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-piechart" },
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { id: "users-pie", "data-toggle": "easypiechart", className: "easyPieChart", "data-barcolor": "#fff",
+	                                                "data-linecap": "butt", "data-percent": "100", "data-animate": "500", "data-linewidth": "3",
+	                                                "data-size": "47", "data-trackcolor": "rgba(255,255,255,0.1)",
+	                                                style: { width: '47px', height: '47px', lineHeight: '47px' } },
+	                                            _react2.default.createElement(
+	                                                "span",
+	                                                { className: "white font-90" },
+	                                                "100%"
+	                                            ),
+	                                            _react2.default.createElement("canvas", { width: "47", height: "47" })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "databox-right" },
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "databox-number themeprimary" },
+	                                        this.props.container.state.items.length,
+	                                        " medicines"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-text darkgray" },
+	                                        "Total"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-state bg-themeprimary" },
+	                                        _react2.default.createElement("i", { className: "fa fa-check" })
+	                                    )
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-lg-3 col-md-3 col-sm-6 col-xs-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "databox bg-white radius-bordered" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "databox-left no-padding" },
+	                                    _react2.default.createElement("img", { src: "assets/img/avatars/John-Smith.jpg", style: { width: '65px', height: '65px' } })
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "databox-right padding-top-20" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-stat palegreen" },
+	                                        _react2.default.createElement("i", { className: "stat-icon icon-xlg fa fa-phone" })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-text darkgray" },
+	                                        "JOHN SMITH"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "databox-text darkgray" },
+	                                        "TOP RESELLER"
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }, {
+	        key: "countMedicineByExpiry",
+	        value: function countMedicineByExpiry(medicine_list) {
+	            var self = this;
+	            console.log(this.props.container.state);
+	        }
+	    }, {
+	        key: "componentDidMount",
+	        value: function componentDidMount() {
+	            var self = this;
+	            self.countMedicineByExpiry(this.props.container.state.items);
+	        }
+	    }]);
+
+	    return MedicineStatusBar;
+	}(_react2.default.Component);
+
+	exports.default = MedicineStatusBar;
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -23150,135 +23242,218 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var MedicineList = function (_React$Component) {
-	  _inherits(MedicineList, _React$Component);
+	    _inherits(MedicineList, _React$Component);
 
-	  function MedicineList(props) {
-	    _classCallCheck(this, MedicineList);
+	    function MedicineList(props) {
+	        _classCallCheck(this, MedicineList);
 
-	    return _possibleConstructorReturn(this, (MedicineList.__proto__ || Object.getPrototypeOf(MedicineList)).call(this, props));
-	  }
+	        return _possibleConstructorReturn(this, (MedicineList.__proto__ || Object.getPrototypeOf(MedicineList)).call(this, props));
+	    }
 
-	  _createClass(MedicineList, [{
-	    key: "render",
-	    value: function render() {
-	      var self = this;
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "page-content" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "page-breadcrumbs" },
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "breadcrumb" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              _react2.default.createElement("i", { className: "fa fa-home" }),
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Home"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              { className: "active" },
-	              "Medicine / List"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "page-body" },
-	          _react2.default.createElement(
-	            "div",
-	            { className: "row" },
-	            _react2.default.createElement(
-	              "div",
-	              { className: "col-lg-12" },
-	              _react2.default.createElement(
+	    _createClass(MedicineList, [{
+	        key: "render",
+	        value: function render() {
+	            var self = this;
+	            return _react2.default.createElement(
 	                "div",
-	                { className: "widget" },
+	                { className: "page-content" },
 	                _react2.default.createElement(
-	                  "div",
-	                  { className: "widget-header bordered-bottom bordered-themesecondary" },
-	                  _react2.default.createElement("i", { className: "widget-icon fa fa-tags themesecondary" }),
-	                  _react2.default.createElement(
-	                    "span",
-	                    { className: "widget-caption themesecondary" },
-	                    "Medicine List"
-	                  )
+	                    "div",
+	                    { className: "page-breadcrumbs" },
+	                    _react2.default.createElement(
+	                        "ul",
+	                        { className: "breadcrumb" },
+	                        _react2.default.createElement(
+	                            "li",
+	                            null,
+	                            _react2.default.createElement("i", { className: "fa fa-home" }),
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "#" },
+	                                "Home"
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "active" },
+	                            "Medicine / List"
+	                        )
+	                    )
 	                ),
 	                _react2.default.createElement(
-	                  "div",
-	                  { className: "widget-body  no-padding" },
-	                  _react2.default.createElement(
 	                    "div",
-	                    { className: "tickets-container" },
+	                    { className: "page-body" },
 	                    _react2.default.createElement(
-	                      "ul",
-	                      { className: "tickets-list" },
-	                      this.props.container.state.items.map(function (item, index) {
-
-	                        return _react2.default.createElement(
-	                          "li",
-	                          { className: "ticket-item", key: index },
-	                          _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
 	                            "div",
-	                            { className: "row" },
+	                            { className: "col-lg-12" },
 	                            _react2.default.createElement(
-	                              "div",
-	                              { className: "ticket-user col-lg-6 col-sm-12" },
-	                              _react2.default.createElement("img", { src: item.img, className: "user-avatar" }),
-	                              _react2.default.createElement(
-	                                "span",
-	                                { className: "user-name" },
-	                                item.name
-	                              )
-	                            ),
-	                            _react2.default.createElement(
-	                              "div",
-	                              { className: "ticket-time  col-lg-4 col-sm-6 col-xs-12" },
-	                              _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
-	                              _react2.default.createElement(
-	                                "span",
-	                                { className: "time" },
-	                                "10 \xA0",
-	                                _react2.default.createElement("i", { className: "fa fa-inr", "aria-hidden": "true" })
-	                              )
-	                            ),
-	                            _react2.default.createElement(
-	                              "div",
-	                              { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
-	                              _react2.default.createElement("span", { className: "divider hidden-xs" }),
-	                              _react2.default.createElement(
-	                                "span",
-	                                { className: "type" },
-	                                "100"
-	                              )
-	                            )
-	                          )
-	                        );
-	                      })
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
+	                                "div",
+	                                { className: "widget" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "widget-header bordered-bottom bordered-themesecondary" },
+	                                    _react2.default.createElement("i", { className: "widget-icon fa fa-tags themesecondary" }),
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "widget-caption themesecondary" },
+	                                        "Medicine List"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "widget-body  no-padding" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "tickets-container" },
+	                                        _react2.default.createElement(
+	                                            "ul",
+	                                            { className: "tickets-list" },
+	                                            _react2.default.createElement(
+	                                                "li",
+	                                                { className: "ticket-item" },
+	                                                _react2.default.createElement(
+	                                                    "div",
+	                                                    { className: "row" },
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-user col-lg-4 col-sm-12" },
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "user-name" },
+	                                                            "Name"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-time  col-lg-2 col-sm-6 col-xs-12" },
+	                                                        _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "time" },
+	                                                            "Price"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-time  col-lg-2 col-sm-6 col-xs-12" },
+	                                                        _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "time" },
+	                                                            "Quantity"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                                                        _react2.default.createElement("span", { className: "divider hidden-xs" }),
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "type" },
+	                                                            "Purchase Date"
+	                                                        )
+	                                                    ),
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                                                        _react2.default.createElement("span", { className: "divider hidden-xs" }),
+	                                                        _react2.default.createElement(
+	                                                            "span",
+	                                                            { className: "type" },
+	                                                            "Expiry Date"
+	                                                        )
+	                                                    )
+	                                                )
+	                                            ),
+	                                            this.props.container.state.items.map(function (item, index) {
 
-	  return MedicineList;
+	                                                return _react2.default.createElement(
+	                                                    "li",
+	                                                    { className: "ticket-item", key: index },
+	                                                    _react2.default.createElement(
+	                                                        "div",
+	                                                        { className: "row" },
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-user col-lg-4 col-sm-12" },
+	                                                            _react2.default.createElement("img", { src: item.img, className: "user-avatar" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "user-name" },
+	                                                                item.name
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-time  col-lg-2 col-sm-6 col-xs-12" },
+	                                                            _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "time" },
+	                                                                item.price,
+	                                                                " \xA0",
+	                                                                _react2.default.createElement("i", { className: "fa fa-inr", "aria-hidden": "true" })
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-time  col-lg-2 col-sm-6 col-xs-12" },
+	                                                            _react2.default.createElement("div", { className: "divider hidden-md hidden-sm hidden-xs" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "time" },
+	                                                                item.qty
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                                                            _react2.default.createElement("span", { className: "divider hidden-xs" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "type" },
+	                                                                item.purchase_date
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-type  col-lg-2 col-sm-6 col-xs-12" },
+	                                                            _react2.default.createElement("span", { className: "divider hidden-xs" }),
+	                                                            _react2.default.createElement(
+	                                                                "span",
+	                                                                { className: "type" },
+	                                                                item.exp_date
+	                                                            )
+	                                                        ),
+	                                                        _react2.default.createElement(
+	                                                            "div",
+	                                                            { className: "ticket-state bg-palegreen" },
+	                                                            _react2.default.createElement("i", { className: "fa fa-check" })
+	                                                        )
+	                                                    )
+	                                                );
+	                                            })
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MedicineList;
 	}(_react2.default.Component);
 
 	exports.default = MedicineList;
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23293,15 +23468,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _toastr = __webpack_require__(186);
+	var _toastr = __webpack_require__(187);
 
 	var _toastr2 = _interopRequireDefault(_toastr);
 
-	var _validate2 = __webpack_require__(189);
+	var _validate2 = __webpack_require__(190);
 
 	var _validate3 = _interopRequireDefault(_validate2);
 
-	var _rules = __webpack_require__(191);
+	var _rules = __webpack_require__(192);
 
 	var _rules2 = _interopRequireDefault(_rules);
 
@@ -23392,7 +23567,7 @@
 	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
 	                                                    'label',
-	                                                    { 'for': 'inputEmail3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
 	                                                    'Name:'
 	                                                ),
 	                                                _react2.default.createElement(
@@ -23410,7 +23585,7 @@
 	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
 	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
 	                                                    'Quantity:'
 	                                                ),
 	                                                _react2.default.createElement(
@@ -23427,7 +23602,7 @@
 	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
 	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
 	                                                    'Price:'
 	                                                ),
 	                                                _react2.default.createElement(
@@ -23443,13 +23618,29 @@
 	                                                { className: 'form-group' },
 	                                                _react2.default.createElement(
 	                                                    'label',
-	                                                    { 'for': 'inputPassword3', className: 'col-sm-2 control-label no-padding-right' },
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
+	                                                    'Purchase Date:'
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    'div',
+	                                                    { className: 'col-sm-10' },
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control datepicker', placeholder: 'Discount', ref: function ref(purchase_date) {
+	                                                            return _this2.purchase_date = purchase_date;
+	                                                        } })
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'form-group' },
+	                                                _react2.default.createElement(
+	                                                    'label',
+	                                                    { className: 'col-sm-2 control-label no-padding-right' },
 	                                                    'Expiry Date:'
 	                                                ),
 	                                                _react2.default.createElement(
 	                                                    'div',
 	                                                    { className: 'col-sm-10' },
-	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'datepicker', placeholder: 'Discount', ref: function ref(exp_date) {
+	                                                    _react2.default.createElement('input', { type: 'text', className: 'form-control datepicker', placeholder: 'Discount', ref: function ref(exp_date) {
 	                                                            return _this2.exp_date = exp_date;
 	                                                        } })
 	                                                )
@@ -23488,8 +23679,10 @@
 
 	                var data = {
 	                    medicine_id: $("#medicine_id").val(),
-	                    quantity: this.quantity.value,
-	                    print: 10
+	                    qty: this.quantity.value,
+	                    price: this.price.value,
+	                    purchase_date: this.purchase_date.value,
+	                    exp_date: this.exp_date.value
 	                };
 	                $.when(self.add(data)).then(function (response) {
 	                    _toastr2.default["success"]("'" + self.medicine_name.value + "' added successfully!");
@@ -23522,7 +23715,7 @@
 	                    console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
 	                }
 	            });
-	            $("#datepicker").datepicker({ minDate: 0, maxDate: "+1M +10D" });
+	            $(".datepicker").datepicker({ minDate: 0, maxDate: "+1M +10D", dateFormat: "dd/mm/yy" });
 	        }
 	    }]);
 
@@ -23532,7 +23725,7 @@
 	exports.default = MedicineAdd;
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -23549,7 +23742,7 @@
 	 */
 	/* global define */
 	; (function (define) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(187)], __WEBPACK_AMD_DEFINE_RESULT__ = function ($) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(188)], __WEBPACK_AMD_DEFINE_RESULT__ = function ($) {
 	        return (function () {
 	            var $container;
 	            var listener;
@@ -23963,11 +24156,11 @@
 
 	        })();
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	}(__webpack_require__(188)));
+	}(__webpack_require__(189)));
 
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -34193,14 +34386,14 @@
 
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/*!
@@ -35372,16 +35565,16 @@
 	    }
 	  };
 
-	  validate.exposeModule(validate, this, exports, module, __webpack_require__(188));
+	  validate.exposeModule(validate, this, exports, module, __webpack_require__(189));
 	}).call(this,
 	         true ? /* istanbul ignore next */ exports : null,
 	         true ? /* istanbul ignore next */ module : null,
-	        __webpack_require__(188));
+	        __webpack_require__(189));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(190)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(191)(module)))
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -35397,7 +35590,7 @@
 
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -35420,7 +35613,7 @@
 	exports.default = constraints;
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35575,7 +35768,7 @@
 	exports.default = TeamMember;
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35766,7 +35959,7 @@
 	exports.default = Profile;
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35781,19 +35974,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _toastr = __webpack_require__(186);
+	var _toastr = __webpack_require__(187);
 
 	var _toastr2 = _interopRequireDefault(_toastr);
 
-	var _validate2 = __webpack_require__(189);
+	var _validate2 = __webpack_require__(190);
 
 	var _validate3 = _interopRequireDefault(_validate2);
 
-	var _rules = __webpack_require__(191);
+	var _rules = __webpack_require__(192);
 
 	var _rules2 = _interopRequireDefault(_rules);
 
-	__webpack_require__(195);
+	__webpack_require__(196);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36008,7 +36201,7 @@
 	exports.default = InvoiceAdd;
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -36030,7 +36223,7 @@
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(187), __webpack_require__(196) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(188), __webpack_require__(197) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36747,14 +36940,14 @@
 
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(187) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(188) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36770,7 +36963,7 @@
 
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37306,7 +37499,7 @@
 	exports.default = InvoicePrint;
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

@@ -61,5 +61,21 @@ export default class Container extends React.Component {
         });
       }
     });
+  };
+  getSetting(data = {}) {
+    return $.get('setting', data);
+  };
+  getMedicines(data = {}) {
+    return $.get('shop_medicine', data);
+  };
+  componentDidMount() {
+    var self = this;
+    $.when(this.getSetting(), this.getMedicines()).done(function() {
+      var settings = arguments[0];
+      var medicines = arguments[1];
+      self.setState({
+        items: medicines[0].result
+      });
+    });
   }
 }
