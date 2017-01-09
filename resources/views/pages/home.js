@@ -1,6 +1,9 @@
 import React from 'react';
-
+import MedicineStatusBar from './medicine_status_bar.js';
 export default class Post extends React.Component {
+  constructor(props) {
+    super(props);
+  };
   render() {
     return (
       <div className="page-content">
@@ -15,74 +18,7 @@ export default class Post extends React.Component {
 
           <div className="page-body">
 
-            <div className="row">
-                <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div className="row">
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div className="databox bg-white radius-bordered">
-                                <div className="databox-left bg-themesecondary">
-                                    <div className="databox-piechart">
-                                        <div data-toggle="easypiechart" className="easyPieChart" data-barcolor="#fff" data-linecap="butt" data-percent="50" data-animate="500" data-linewidth="3" data-size="47" data-trackcolor="rgba(255,255,255,0.1)" style={{width: '47px', height: '47px', lineHeight: '47px'}}><span className="white font-90">50%</span><canvas width="47" height="47"></canvas></div>
-                                    </div>
-                                </div>
-                                <div className="databox-right">
-                                    <span className="databox-number themesecondary">28 medicines</span>
-                                    <div className="databox-text darkgray">Will Expiry in 10 days</div>
-                                    <div className="databox-stat themesecondary radius-bordered">
-                                        <i className="stat-icon icon-lg fa fa-tasks"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div className="databox bg-white radius-bordered">
-                                <div className="databox-left bg-themethirdcolor">
-                                    <div className="databox-piechart">
-                                        <div data-toggle="easypiechart" className="easyPieChart" data-barcolor="#fff" data-linecap="butt" data-percent="15" data-animate="500" data-linewidth="3" data-size="47" data-trackcolor="rgba(255,255,255,0.2)" style={{width: '47px', height: '47px', lineHeight: '47px'}}><span className="white font-90">15%</span><canvas width="47" height="47"></canvas></div>
-                                    </div>
-                                </div>
-                                <div className="databox-right">
-                                    <span className="databox-number themethirdcolor">5 medicines</span>
-                                    <div className="databox-text darkgray">will expire in 20 days</div>
-                                    <div className="databox-stat themethirdcolor radius-bordered">
-                                        <i className="stat-icon  icon-lg fa fa-envelope-o"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div className="databox bg-white radius-bordered">
-                                <div className="databox-left bg-themeprimary">
-                                    <div className="databox-piechart">
-                                        <div id="users-pie" data-toggle="easypiechart" className="easyPieChart" data-barcolor="#fff" data-linecap="butt" data-percent="76" data-animate="500" data-linewidth="3" data-size="47" data-trackcolor="rgba(255,255,255,0.1)" style={{width: '47px', height: '47px', lineHeight: '47px'}}><span className="white font-90">76%</span><canvas width="47" height="47"></canvas></div>
-                                    </div>
-                                </div>
-                                <div className="databox-right">
-                                    <span className="databox-number themeprimary">92 medicines</span>
-                                    <div className="databox-text darkgray">Total</div>
-                                    <div className="databox-state bg-themeprimary">
-                                        <i className="fa fa-check"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div className="databox bg-white radius-bordered">
-                                <div className="databox-left no-padding">
-                                    <img src="assets/img/avatars/John-Smith.jpg" style={{width:'65px', height:'65px'}} />
-                                </div>
-                                <div className="databox-right padding-top-20">
-                                    <div className="databox-stat palegreen">
-                                        <i className="stat-icon icon-xlg fa fa-phone"></i>
-                                    </div>
-                                    <div className="databox-text darkgray">JOHN SMITH</div>
-                                    <div className="databox-text darkgray">TOP RESELLER</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <MedicineStatusBar container={this.props.container}/>
 
             <div className="row">
 
