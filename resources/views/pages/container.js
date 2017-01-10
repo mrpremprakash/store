@@ -16,7 +16,8 @@ export default class Container extends React.Component {
     this.state = {
       active_menu: 'Home',
       items: [],
-      invoice_notification_items: []
+      invoice_notification_items: [],
+      settings: []
     };
   };
   render() {
@@ -73,8 +74,10 @@ export default class Container extends React.Component {
     $.when(this.getSetting(), this.getMedicines()).done(function() {
       var settings = arguments[0];
       var medicines = arguments[1];
+
       self.setState({
-        items: medicines[0].result
+        items: medicines[0].result,
+        settings: settings[0].result
       });
     });
   }
