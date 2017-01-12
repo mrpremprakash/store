@@ -74,22 +74,24 @@ class Shop_medicineController extends Controller
      */
     public function store(Request $request)
     {
+        $exp_date = date('Y-m-d',  strtotime(str_replace('/','-',$request->exp_date)));
+        $purchase_date = date('Y-m-d',  strtotime(str_replace('/','-',$request->purchase_date)));
+        $user_id = Auth::user()->shop_id; 
         
-        $Shop_medicines = new Shop_medicine;
-
-        $Shop_medicines->medicine_id = $request->medicine_id;
-        $Shop_medicines->shop_id = Auth::user()->shop_id;
-        $Shop_medicines->price = $request->price;
-        $Shop_medicines->qty = $request->qty;
-        $Shop_medicines->purchase_date = date('Y-m-d',strtotime(str_replace('/','-',$request->purchase_date)));
-        $Shop_medicines->exp_date = date('Y-m-d',  strtotime(str_replace('/','-',$request->exp_date)));
-        $Shop_medicines->created_at = date('Y-m-d H:i:s');
-        $Shop_medicines->updated_at =  date('Y-m-d H:i:s');
+        $chek_shop_medicine = Shop_medicine::where('shop_id','=',$user_id)
+                            ->where('medicine_id','=',$request->medicine_id)
+                            ->where('exp_date','=',$exp_date)
+                            ->where('price','=',$request->price)
+                            ->first();
+        $Shop_medicines = Shop_medicine::updateOrCreate(
+                            ['shop_id' => $user_id, 'medicine_id' => $request->medicine_id, 'exp_date' => $exp_date, 'price' => $request->price],
+                            ['qty' => $request->qty,'purchase_date'=>$purchase_date,'updated_at'=>date('Y-m-d H:i:s')]
+                        );
         
-        if($Shop_medicines->save()){
-            return response()->json([
-                                        'status' => 'success',
-                ]);
+        if($Shop_medicines){
+                return response()->json([
+                                            'status' => 'success',
+                    ]);
         }
         else{
             return response()->json([
