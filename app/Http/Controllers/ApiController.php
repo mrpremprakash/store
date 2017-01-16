@@ -13,6 +13,7 @@ use App\Keywords;
 use App\Shop_categories_mapping;
 use App\Shop_keywords_mapping;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 class ApiController extends Controller
 {
     /**
@@ -248,5 +249,38 @@ class ApiController extends Controller
         return response()->json(
                     $result 
         );
+    }
+    
+    public function get_flag_count(){
+        $red_flag_days = Auth::user()->red_flag_days;
+        $yellow_flag_days = Auth::user()->yellow_flag_days;
+        $shop_id = Auth::user()->shop_id;
+        
+        $red_flag_count = DB::table('shop_medicines')
+                ->select('shop_medicines.*')
+                ->where('shop_medicines.shop_id',$shop_id)
+                ->whereRaw("shop_medicines.exp_date <= DATE(NOW() + INTERVAL $red_flag_days DAY)")
+                ->get()->count();
+        
+        $yellow_flag_count = DB::table('shop_medicines')
+                ->select('shop_medicines.*')
+                ->where('shop_medicines.shop_id',$shop_id)
+                ->whereRaw("shop_medicines.exp_date > DATE(NOW() + INTERVAL $red_flag_days DAY)")
+                ->whereRaw("shop_medicines.exp_date <= DATE(NOW() + INTERVAL $yellow_flag_days DAY)")
+                ->get()->count();
+        
+        $medicine_count = DB::table('shop_medicines')
+                ->select('shop_medicines.*')
+                ->where('shop_medicines.shop_id',$shop_id)
+                ->get()->count();
+        $result['red_flag_count']=$red_flag_count;
+        $result['yellow_flag_count']=$yellow_flag_count;
+        $result['medicine_count']=$medicine_count;
+        
+        return response()->json(
+                    $result 
+        );
+        
+        
     }
 }

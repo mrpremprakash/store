@@ -54,6 +54,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/csrf', function() {
     return Session::token();
 });
+    Route::get('/flag_count', 'ApiController@get_flag_count');
 });
 
 Route::get('harvest_store', 'UtilityController@harvest_store');
